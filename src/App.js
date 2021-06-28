@@ -1,21 +1,49 @@
 import React from "react";
 import "./css/style.css";
-//import "./scss/style.scss";
 import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import * as $ from "jquery";
 var ReactCSSTransitionGroup = require("react-addons-css-transition-group");
 import { PropTypes } from "prop-types";
+import Welcome from "./Welcome";
+import DriversTable from "./DriversTable";
 
 export default class App extends React.Component {
-    constructor() {
-        super();
-    }
 
     render() {
         return(
-            <div>
-                
-            </div>
+            <Router>
+                <div className="main">
+                    <div className='sidebar'>
+                        <nav>
+                            <img src="img/praviLogo.jpg"/>
+                            <ul className="links">
+                                <li className="link">
+                                    <Link to="/drivers">
+                                        <img src="img/helmet.png"/>
+                                        <p className="linkPara">Drivers</p>
+                                        </Link>
+                                </li>
+                                <li className="link">
+                                    <Link to="/teams">
+                                        <img src="img/timovi.png"/>
+                                        <p>Teams</p>
+                                        </Link>
+                                </li>
+                                <li className="link">
+                                    <Link to="/races">
+                                        <img src="img/checkered-flag.png"/>
+                                        <p>Races</p>
+                                        </Link>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div className='content'>
+                        <Route path="/" exact component={Welcome}/>
+                        <Route path="/drivers" component={DriversTable}/>
+                    </div>
+                </div>
+            </Router>
         )
     }
 }
