@@ -1,12 +1,13 @@
 import React from "react";
 import * as $ from "jquery";
+import { Link } from "react-router-dom";
 
-export default class DriversTable extends React.Component {
+export default class Races extends React.Component {
     constructor() {
         super();
 
         this.state = {
-            drivers: []
+            races: []
         }
     }
 
@@ -15,31 +16,32 @@ export default class DriversTable extends React.Component {
     }
 
     getResponse() {
-        var url = "http://ergast.com/api/f1/2013/driverStandings.json";
+        var url = "http://ergast.com/api/f1/2013/results/1.json";
         $.get(url, (data) => {
             console.log(data);
             this.setState({
-                drivers: data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+                races: data.MRData.RaceTable.Races
             })
         })
     }
 
     render() {
         return(
-            <table>
+            <table >
                 <thead>
                     <tr>
                         <th>Constructors Championships Standings - 2013</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.drivers.map((driver, i) => {
+                    {this.state.races.map((race, i) => {
                         return(
                             <tr key={i}>
-                                <td>{driver.position}</td>
-                                <td className='fullName'>{driver.Driver.givenName+" "+driver.Driver.familyName}</td>
-                                <td className='constructor'>{driver.Constructors[0].name}</td>
-                                <td className='points'>{driver.points}</td>
+                                <td className='position'>{race.round}</td>
+                                <td className='constructor'>{race.raceName}</td>
+                                <td className="Circuit">{race.Circuit.circuitName}</td>
+                                <td className='date'>{race.date}</td>
+                                <td className='winner'>{race.Results[0].Driver.familyName}</td>
                             </tr>
                         )
                     })}
@@ -48,4 +50,3 @@ export default class DriversTable extends React.Component {
         )
     }
 }
-

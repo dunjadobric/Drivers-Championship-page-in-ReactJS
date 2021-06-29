@@ -1,12 +1,13 @@
 import React from "react";
 import * as $ from "jquery";
+import { Link } from "react-router-dom";
 
-export default class DriversTable extends React.Component {
+export default class Teams extends React.Component {
     constructor() {
         super();
 
         this.state = {
-            drivers: []
+            teams: []
         }
     }
 
@@ -15,16 +16,16 @@ export default class DriversTable extends React.Component {
     }
 
     getResponse() {
-        var url = "http://ergast.com/api/f1/2013/driverStandings.json";
+        var url = "http://ergast.com/api/f1/2013/constructorStandings.json";
         $.get(url, (data) => {
             console.log(data);
             this.setState({
-                drivers: data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+                teams: data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
             })
         })
     }
 
-    render() {
+        render() {
         return(
             <table>
                 <thead>
@@ -33,13 +34,13 @@ export default class DriversTable extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.drivers.map((driver, i) => {
+                    {this.state.teams.map((team, i) => {
                         return(
                             <tr key={i}>
-                                <td>{driver.position}</td>
-                                <td className='fullName'>{driver.Driver.givenName+" "+driver.Driver.familyName}</td>
-                                <td className='constructor'>{driver.Constructors[0].name}</td>
-                                <td className='points'>{driver.points}</td>
+                                <td className='position'>{team.position}</td>
+                                <td className='constructor'>{team.Constructor.name}</td>
+                                <td>{<Link to="#">Details</Link>}</td>
+                                <td className='points'>{team.points}</td>
                             </tr>
                         )
                     })}
@@ -48,4 +49,3 @@ export default class DriversTable extends React.Component {
         )
     }
 }
-

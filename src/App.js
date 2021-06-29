@@ -6,6 +6,9 @@ var ReactCSSTransitionGroup = require("react-addons-css-transition-group");
 import { PropTypes } from "prop-types";
 import Welcome from "./Welcome";
 import DriversTable from "./DriversTable";
+import Teams from "./Teams";
+import Races from "./Races";
+
 
 export default class App extends React.Component {
 
@@ -41,6 +44,8 @@ export default class App extends React.Component {
                     <div className='content'>
                         <Route path="/" exact component={Welcome}/>
                         <Route path="/drivers" component={DriversTable}/>
+                        <Route path="/teams" component={Teams}/>
+                        <Route path="/races" component={Races}/>
                     </div>
                 </div>
             </Router>
