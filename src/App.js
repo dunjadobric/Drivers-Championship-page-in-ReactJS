@@ -8,6 +8,7 @@ import Welcome from "./Welcome";
 import DriversTable from "./DriversTable";
 import Teams from "./Teams";
 import Races from "./Races";
+import Flag from 'react-flagkit';
 
 
 export default class App extends React.Component {
