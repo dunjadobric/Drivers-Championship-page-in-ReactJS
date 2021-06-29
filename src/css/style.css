@@ -89,7 +89,7 @@ body {
 
 /* DRIVERS TABLE START */
 
-.drivers {
+.drivers, .teams {
 	background-color: #9ca0a6;
 	min-height: 100%;
 	padding-bottom: 40px;
@@ -97,7 +97,7 @@ body {
 	font-weight: bold;
 }
 
-.drivers h2 {
+.drivers h2, .teams h2 {
 	font-family: "Audiowide", cursive;
 	font-size: 3rem;
 	color: white;
@@ -108,17 +108,17 @@ body {
 	padding-bottom: 2rem;
 }
 
-.drivers table {
+.drivers table, .teams table {
 	margin-left: 40px;
 	width: 95%;
 	border-radius: 5px;
 }
 
-.drivers table thead {
+.drivers table thead, .teams table thead {
 	background-color: #c7c6c1;
 }
 
-.drivers table thead th {
+.drivers table thead th, .teams table thead th {
 	padding-left: 50px;
 	padding-right: 50px;
 	text-align: start;
@@ -127,39 +127,40 @@ body {
 	font-size: 20px;
 }
 
-.drivers table tbody td {
+.drivers table tbody td, .teams table tbody td {
 	background-color: white;
 	padding: 10px;
 }
 
-.drivers table tbody td a {
+.drivers table tbody td a, .teams table tbody td a {
 	text-decoration: none;
+	color: #717171;
 }
 
-.drivers .driverPosition {
+.drivers .driverPosition, .teams .position {
 	/* font-weight: bold; */
 	color: #000;
 }
 
 /*zastave*/
 
-.drivers .fullName a {
+.drivers .fullName a, .constructorTeams {
 	color: inherit;
 	display: flex;
 	flex-direction: row;
 }
 
-.drivers .fullName a img {
+.drivers .fullName a img, .constructorTeams img {
 	display: flex;
 	align-self: center;
 }
 
-.drivers .fullName a p {
+.drivers .fullName a p, .constructorTeams p {
 	padding: 10px;
 }
 /*zastave*/
 
-.drivers .points {
+.drivers .points, .teams .points {
 	/* font-weight: bold; */
 	color: #000;
 }

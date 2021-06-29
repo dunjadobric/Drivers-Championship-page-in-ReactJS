@@ -27,6 +27,7 @@ export default class DriversTable extends React.Component {
       });
     });
   }
+  
   getFlags() {
     var url =
       "https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json";
