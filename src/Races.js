@@ -1,6 +1,7 @@
 import React from "react";
 import * as $ from "jquery";
 import { Link } from "react-router-dom";
+import Flag from "react-flagkit";
 
 export default class Races extends React.Component {
 	constructor() {
@@ -8,11 +9,13 @@ export default class Races extends React.Component {
 
 		this.state = {
 			races: [],
+			flags: [],
 		};
 	}
 
 	componentDidMount() {
 		this.getResponse();
+		this.getFlags();
 	}
 
 	getResponse() {
@@ -25,12 +28,26 @@ export default class Races extends React.Component {
 		});
 	}
 
+	getFlags() {
+		var url =
+		  "https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json";
+	
+		$.get(url, (data) => {
+		  var flags = JSON.parse(data);
+		  this.setState({
+			flags: flags,
+		  });
+		});
+	  }
+
 	render() {
 		return (
-			<table>
+			<div className="races">
+				<h2>Race Calendar</h2>
+				<table>
 				<thead>
 					<tr>
-						<th>Constructors Championships Standings - 2013</th>
+						<th colSpan="5">Race Calendar - 2013</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,19 +55,54 @@ export default class Races extends React.Component {
 						return (
 							<tr key={i}>
 								<td className="position">{race.round}</td>
-								<td className="constructor">{race.raceName}</td>
+								<td className="constructorRaces">
+								<Link to="#">
+								{this.state.flags.map((flag, i) => {
+											if (
+											race.Circuit.Location.country === "UK" &&
+											flag.en_short_name === "United Kingdom of Great Britain and Northern Ireland"
+											) {
+											return <Flag key={i} country="GB" size={30}/>;
+											} else if (race.Circuit.Location.country === "Korea" && flag.en_short_name==="Korea (Republic of)") {
+											return <Flag key={i} country="KR" />;
+											} else if (race.Circuit.Location.country === "UAE" && flag.en_short_name==="United Arab Emirates") {
+												return <Flag key={i} country="AE" />;
+											} else if (race.Circuit.Location.country === "USA" && flag.en_short_name==="United States of America") {
+												return <Flag key={i} country="US" />;
+											} else {
+											if (race.Circuit.Location.country === flag.en_short_name) {
+												return <Flag key={i} country={flag.alpha_2_code} size={30}/>;
+											}
+											}
+										})}
+									<p>{race.raceName}</p>
+								</Link>
+									</td>
 								<td className="circuit">
 									{race.Circuit.circuitName}
 								</td>
 								<td className="date">{race.date}</td>
 								<td className="winner">
-									{race.Results[0].Driver.familyName}
+								{this.state.flags.map((flag, i) => {
+									if (
+										race.Results[0].Driver.nationality === "British" &&
+										flag.nationality === "British, UK"
+										) {
+										return <Flag key={i} country="GB" size={30}/>;
+										} else {
+										if (race.Results[0].Driver.nationality === flag.nationality) {
+											return <Flag key={i} country={flag.alpha_2_code} size={30}/>;
+										}
+									}
+								})}
+								<p>{race.Results[0].Driver.familyName}</p>
 								</td>
 							</tr>
 						);
 					})}
 				</tbody>
 			</table>
+			</div>
 		);
 	}
 }
