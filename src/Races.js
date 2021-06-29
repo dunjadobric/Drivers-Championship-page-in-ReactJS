@@ -49,6 +49,13 @@ export default class Races extends React.Component {
 					<tr>
 						<th colSpan="5">Race Calendar - 2013</th>
 					</tr>
+					<tr className="racesRows">
+						<th className="racesRow">Round</th>
+						<th className="racesRow">Grand Prix</th>
+						<th className="racesRow">Circuit</th>
+						<th className="racesRow">Date</th>
+						<th className="racesRow">Winner</th>
+					</tr>
 				</thead>
 				<tbody>
 					{this.state.races.map((race, i) => {

@@ -122,9 +122,19 @@ body {
 	padding-left: 50px;
 	padding-right: 50px;
 	text-align: start;
-	padding: 20px;
-	color: rgb(32, 32, 32);
-	font-size: 20px;
+	padding: 10px;
+	/* color: rgb(32, 32, 32); */
+	color: #717171;
+	font-size: 1.1rem;
+}
+
+.racesRows {
+	background-color: #bab9b4;
+}
+
+.racesRow {
+	border: none;
+	color: #000;
 }
 
 .drivers table tbody td, .teams table tbody td, .races table tbody td {
