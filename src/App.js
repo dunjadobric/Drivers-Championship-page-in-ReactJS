@@ -29,7 +29,7 @@ export default class App extends React.Component {
                                 </li>
                                 <li className="link">
                                     <Link to="/teams">
-                                        <img src="img/timovi.png"/>
+                                        <img src="img/timovi1.png"/>
                                         <p>Teams</p>
                                         </Link>
                                 </li>
