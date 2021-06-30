@@ -72,10 +72,8 @@ export default class DriversTable extends React.Component {
                     })}
                   
                   
-                    <Link to={{ pathname: '/driver', state: { id: driver.Driver.driverId} }}>
-                    {/* <Link to="#"> */}
-                      {driver.Driver.givenName + " " + driver.Driver.familyName}
-                    </Link>
+                    <Link to={`/driverDetails/${driver.Driver.driverId}`}>{driver.Driver.givenName + " " + driver.Driver.familyName}</Link>
+                  
                   </td>
                   <td className="constructor">{driver.Constructors[0].name}</td>
                   <td className="points">{driver.points}</td>
@@ -86,6 +84,9 @@ export default class DriversTable extends React.Component {
         </table>
 		
       </div>
+       
+                      
+                    
     );
   }
 }

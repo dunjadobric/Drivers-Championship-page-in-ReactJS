@@ -22,12 +22,14 @@ export default class App extends React.Component {
                         <nav>
                             <img src="img/praviLogo.jpg"/>
                             <ul className="links">
+                                
                                 <li className="link">
                                     <Link to="/drivers">
                                         <img src="img/helmet.png"/>
                                         <p className="linkPara">Drivers</p>
                                         </Link>
                                 </li>
+                                
                                 <li className="link">
                                     <Link to="/teams">
                                         <img src="img/timovi1.png"/>
@@ -48,7 +50,7 @@ export default class App extends React.Component {
                         <Route path="/drivers" component={DriversTable}/>
                         <Route path="/teams" component={Teams}/>
                         <Route path="/races" component={Races}/>
-                        <Route path="/driver" component={DriverDetails}/>
+                        <Route path="/driverDetails/:id" exact component={DriverDetails}/>
                     </div>
                 </div>
             </Router>
