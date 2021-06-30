@@ -27,6 +27,7 @@ body {
 	width: 15%;
 	height: 100vh;
 	background-color: #333;
+	border-right: 2px solid rgb(24, 24, 24);
 }
 
 .sidebar img {
@@ -89,7 +90,9 @@ body {
 
 /* DRIVERS TABLE START */
 
-.drivers, .teams, .races {
+.drivers,
+.teams,
+.races {
 	background-color: #9ca0a6;
 	min-height: 100%;
 	padding-bottom: 40px;
@@ -97,7 +100,9 @@ body {
 	font-weight: bold;
 }
 
-.drivers h2, .teams h2, .races h2 {
+.drivers h2,
+.teams h2,
+.races h2 {
 	font-family: "Audiowide", cursive;
 	font-size: 3rem;
 	color: white;
@@ -108,17 +113,23 @@ body {
 	padding-bottom: 2rem;
 }
 
-.drivers table, .teams table, .races table {
+.drivers table,
+.teams table,
+.races table {
 	margin-left: 40px;
 	width: 95%;
 	border-radius: 5px;
 }
 
-.drivers table thead, .teams table thead, .races table thead {
+.drivers table thead,
+.teams table thead,
+.races table thead {
 	background-color: #c7c6c1;
 }
 
-.drivers table thead th, .teams table thead th, .races table thead th {
+.drivers table thead th,
+.teams table thead th,
+.races table thead th {
 	padding-left: 50px;
 	padding-right: 50px;
 	text-align: start;
@@ -137,48 +148,122 @@ body {
 	color: #000;
 }
 
-.drivers table tbody td, .teams table tbody td, .races table tbody td {
+.drivers table tbody td,
+.teams table tbody td,
+.races table tbody td {
 	background-color: white;
 	padding: 10px;
 }
 
-.drivers table tbody td a, .teams table tbody td a, .races table tbody td a {
+.drivers table tbody td a,
+.teams table tbody td a,
+.races table tbody td a {
 	text-decoration: none;
 	color: #717171;
 }
 
-.drivers .driverPosition, .teams .position, .races .position, .races .date {
+.drivers .driverPosition,
+.teams .position,
+.races .position,
+.races .date {
 	/* font-weight: bold; */
 	color: #000;
 }
 
 /*zastave*/
 
-.drivers .fullName a, .constructorTeams, .constructorRaces a, .winner {
+.drivers .fullName a,
+.constructorTeams,
+.constructorRaces a,
+.winner {
 	color: inherit;
 	display: flex;
 	flex-direction: row;
 }
 
-.drivers .fullName a img, .constructorTeams img, .constructorRaces a img, .winner img {
+.drivers .fullName a img,
+.constructorTeams img,
+.constructorRaces a img,
+.winner img {
 	display: flex;
 	align-self: center;
 }
 
-.drivers .fullName a p, .constructorTeams p, .constructorRaces a p, .winner p {
+.drivers .fullName a p,
+.constructorTeams p,
+.constructorRaces a p,
+.winner p {
 	padding: 10px;
 }
 /*zastave*/
 
-.drivers .points, .teams .points {
+.drivers .points,
+.teams .points {
 	/* font-weight: bold; */
 	color: #000;
 }
-.fullName{
+.fullName {
 	display: flex;
 	align-items: center;
 }
-.fullName img{
+.fullName img {
 	margin-right: 10px;
 }
 /* DRIVERS TABLE END */
+
+/* DRIVERS DETAILS START*/
+
+.driverCard {
+	background-color: #333;
+	position: fixed;
+	height: 100vh;
+	width: 20%;
+	padding: 30px;
+}
+
+.driverHeading {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+}
+
+.driverCard .driverPhoto img {
+	object-fit: cover;
+	width: 150px;
+	height: 150px;
+	border-radius: 15px;
+	margin-right: 30px;
+}
+
+.driverName {
+	color: white;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.driverCardTable {
+	color: white;
+	font-weight: 700;
+	text-align: left;
+}
+
+.driverCardTable i {
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+}
+
+.driverCardTable th,
+td {
+	padding: 5px;
+	padding-right: 15px;
+}
+
+.driverDetailsTable {
+	float: right;
+	width: 80%;
+	display: flex;
+	justify-content: center;
+}
+
+/* DRIVERS DETAILS END*/
