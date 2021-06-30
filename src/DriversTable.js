@@ -27,7 +27,6 @@ export default class DriversTable extends React.Component {
       });
     });
   }
-  
   getFlags() {
     var url =
       "https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json";
@@ -48,7 +47,7 @@ export default class DriversTable extends React.Component {
         <table>
           <thead>
             <tr>
-              <th colSpan="4">Drivers Championships Standings - 2013</th>
+              <th colSpan="5">Drivers Championships Standings - 2013</th>
             </tr>
           </thead>
           <tbody>
@@ -57,7 +56,6 @@ export default class DriversTable extends React.Component {
                 <tr key={i}>
                   <td className="driverPosition">{driver.position}</td>
                   <td className="fullName">
-<<<<<<< HEAD
                     {this.state.flags.map((flag, i) => {
                       if (
                         driver.Driver.nationality === "British" &&
@@ -74,27 +72,8 @@ export default class DriversTable extends React.Component {
                     })}
                   
                   
-				  <Link to={{ pathname: '/driver', state: { id: driver.Driver.driverId} }}>
-                    {/* <Link to="#"> */}
+                    <Link id={driver.Driver.familyName} to="/driverDetails">
                       {driver.Driver.givenName + " " + driver.Driver.familyName}
-=======
-                    <Link to="#">
-                      {this.state.flags.map((flag, i) => {
-                        if (
-                          driver.Driver.nationality === "British" &&
-                          flag.nationality === "British, UK"
-                        ) {
-                          return <Flag key={i} country="GB" size={30}/>;
-                        } else if (driver.Driver.nationality === "Dutch" && flag.nationality==="Dutch, Netherlandic") {
-                          return <Flag key={i} country="NL" />;
-                        } else {
-                          if (driver.Driver.nationality === flag.nationality) {
-                            return <Flag key={i} country={flag.alpha_2_code} size={30}/>;
-                          }
-                        }
-                      })}
-                      <p>{driver.Driver.givenName + " " + driver.Driver.familyName}</p>
->>>>>>> 4df89fd130d115c783c2780cd2120a22adbd5df5
                     </Link>
                   </td>
                   <td className="constructor">{driver.Constructors[0].name}</td>
