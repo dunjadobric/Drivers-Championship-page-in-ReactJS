@@ -9,6 +9,7 @@ import DriversTable from "./DriversTable";
 import Teams from "./Teams";
 import Races from "./Races";
 import Flag from 'react-flagkit';
+import DriverDetails from "./DriverDetails"
 
 
 export default class App extends React.Component {
@@ -47,6 +48,7 @@ export default class App extends React.Component {
                         <Route path="/drivers" component={DriversTable}/>
                         <Route path="/teams" component={Teams}/>
                         <Route path="/races" component={Races}/>
+                        <Route path="/driver" component={DriverDetails}/>
                     </div>
                 </div>
             </Router>

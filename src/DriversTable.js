@@ -55,7 +55,7 @@ export default class DriversTable extends React.Component {
               return (
                 <tr key={i}>
                   <td className="driverPosition">{driver.position}</td>
-                  <td>
+                  <td className="fullName">
                     {this.state.flags.map((flag, i) => {
                       if (
                         driver.Driver.nationality === "British" &&
@@ -70,9 +70,10 @@ export default class DriversTable extends React.Component {
                         }
                       }
                     })}
-                  </td>
-                  <td className="fullName">
-                    <Link to="#">
+                  
+                  
+				  <Link to={{ pathname: '/driver', state: { id: driver.Driver.driverId} }}>
+                    {/* <Link to="#"> */}
                       {driver.Driver.givenName + " " + driver.Driver.familyName}
                     </Link>
                   </td>
@@ -83,6 +84,7 @@ export default class DriversTable extends React.Component {
             })}
           </tbody>
         </table>
+		
       </div>
     );
   }
