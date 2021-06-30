@@ -71,7 +71,7 @@ export default class DriverDetails extends React.Component {
 							<div key={i}>
 								<div className="driverHeading">
 									<div className="driverPhoto">
-										<img src="../img/drivers/Sebastian_Vettel.jpg" />
+										<img src={"../img/drivers/" + driver.Driver.givenName + "_" + driver.Driver.familyName + ".jpg"} />
 									</div>
 									<div>
 										<div>
@@ -148,7 +148,7 @@ export default class DriverDetails extends React.Component {
 									<tr>
 										<th>Biography:</th>
 										<td>
-											<Link to="#">
+											<Link to={"///en.wikipedia.org/wiki/" + driver.Driver.givenName + "_" + driver.Driver.familyName} target={"_blank"}>
 												<i class="fa fa-external-link"></i>
 											</Link>
 										</td>
