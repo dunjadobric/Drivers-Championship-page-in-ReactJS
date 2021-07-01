@@ -72,13 +72,8 @@ export default class DriverDetails extends React.Component {
 						return (
 							<div key={i}>
 								<div className="driverHeading">
-									<div className="driverPhoto"
-										style={{  
-												backgroundImage: "url(" + "../img/drivers/" + driver.Driver.givenName + "_" + driver.Driver.familyName + ".jpg" + ")",
-												backgroundPosition: 'center',
-												backgroundSize: 'cover',
-												backgroundRepeat: 'no-repeat'
-											}}>
+									<div className="driverPhoto">
+										<img src={"../img/drivers/" + driver.Driver.givenName + "_" + driver.Driver.familyName + ".jpg"} />
 									</div>
 									<div className="driverNameContent">
 										<div>
@@ -86,9 +81,9 @@ export default class DriverDetails extends React.Component {
 												if (
 													driver.Driver
 														.nationality ===
-														"British" &&
+													"British" &&
 													flag.nationality ===
-														"British, UK"
+													"British, UK"
 												) {
 													return (
 														<Flag
@@ -100,9 +95,9 @@ export default class DriverDetails extends React.Component {
 												} else if (
 													driver.Driver
 														.nationality ===
-														"Dutch" &&
+													"Dutch" &&
 													flag.nationality ===
-														"Dutch, Netherlandic"
+													"Dutch, Netherlandic"
 												) {
 													return (
 														<Flag
@@ -194,9 +189,9 @@ export default class DriverDetails extends React.Component {
 															race.Circuit
 																.Location
 																.country ===
-																"UK" &&
+															"UK" &&
 															flag.en_short_name ===
-																"United Kingdom of Great Britain and Northern Ireland"
+															"United Kingdom of Great Britain and Northern Ireland"
 														) {
 															return (
 																<Flag
@@ -209,9 +204,9 @@ export default class DriverDetails extends React.Component {
 															race.Circuit
 																.Location
 																.country ===
-																"Korea" &&
+															"Korea" &&
 															flag.en_short_name ===
-																"Korea (Republic of)"
+															"Korea (Republic of)"
 														) {
 															return (
 																<Flag
@@ -223,9 +218,9 @@ export default class DriverDetails extends React.Component {
 															race.Circuit
 																.Location
 																.country ===
-																"UAE" &&
+															"UAE" &&
 															flag.en_short_name ===
-																"United Arab Emirates"
+															"United Arab Emirates"
 														) {
 															return (
 																<Flag
@@ -237,9 +232,9 @@ export default class DriverDetails extends React.Component {
 															race.Circuit
 																.Location
 																.country ===
-																"USA" &&
+															"USA" &&
 															flag.en_short_name ===
-																"United States of America"
+															"United States of America"
 														) {
 															return (
 																<Flag
@@ -276,9 +271,9 @@ export default class DriverDetails extends React.Component {
 											{race.Results[0].Constructor.name}
 										</td>
 										<td className="driversGrid">{race.Results[0].grid}</td>
-										
-										
-										<td className="driversRace" style={{backgroundColor: this.state.colors[race.Results[0].position]}}>{race.Results[0].position}</td>
+
+
+										<td className="driversRace" style={{ backgroundColor: this.state.colors[race.Results[0].position] }}>{race.Results[0].position}</td>
 									</tr>
 								);
 							})}

@@ -253,10 +253,11 @@ body {
 
 .driverPhoto {
 	/* width: 200px; */
-	width: auto;
+	width: 200px;
 	height: 200px;
 	margin-bottom: 15px;
-}
+    
+} 
 
 .driverCard .driverPhoto img {
 	object-fit: cover;
