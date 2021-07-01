@@ -120,6 +120,7 @@ body {
 	margin-left: 40px;
 	width: 95%;
 	border-radius: 5px;
+	margin-bottom: 40px;
 }
 
 .driverDetailsTable table {
@@ -234,6 +235,14 @@ body {
 .fullName img {
 	margin-right: 10px;
 }
+
+.spinner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
 /* DRIVERS TABLE END */
 
 /* DRIVERS DETAILS START*/

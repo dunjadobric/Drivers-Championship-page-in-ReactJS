@@ -22,7 +22,8 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^17.0.2",
     "react-flagkit": "^2.0.4",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-spinners-kit": "^1.9.1"
   },
   "devDependencies": {
     "css-loader": "^5.2.6",
