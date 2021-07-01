@@ -92,7 +92,8 @@ body {
 
 .drivers,
 .teams,
-.races {
+.races,
+.driverDetailsTable {
 	background-color: #9ca0a6;
 	min-height: 100%;
 	padding-bottom: 40px;
@@ -121,15 +122,24 @@ body {
 	border-radius: 5px;
 }
 
+.driverDetailsTable table {
+	margin-left: 40px;
+	width: 90%;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
 .drivers table thead,
 .teams table thead,
-.races table thead {
+.races table thead,
+.driverDetailsTable table thead {
 	background-color: #c7c6c1;
 }
 
 .drivers table thead th,
 .teams table thead th,
-.races table thead th {
+.races table thead th,
+.driverDetailsTable table thead th {
 	padding-left: 50px;
 	padding-right: 50px;
 	text-align: start;
@@ -137,6 +147,13 @@ body {
 	/* color: rgb(32, 32, 32); */
 	color: #717171;
 	font-size: 1.1rem;
+}
+
+ .races table thead tr:nth-child(2) th, 
+.driverDetailsTable table thead tr:nth-child(2) th {
+	color: #000;
+	border: none;
+	background-color: #bab9b4;
 }
 
 .racesRows {
@@ -150,14 +167,16 @@ body {
 
 .drivers table tbody td,
 .teams table tbody td,
-.races table tbody td {
+.races table tbody td,
+.driverDetailsTable td {
 	background-color: white;
 	padding: 10px;
 }
 
 .drivers table tbody td a,
 .teams table tbody td a,
-.races table tbody td a {
+.races table tbody td a,
+.driverDetailsTable td a {
 	text-decoration: none;
 	color: #717171;
 }
@@ -167,6 +186,10 @@ body {
 .races .position,
 .races .date {
 	/* font-weight: bold; */
+	color: #000;
+}
+
+.driverDetailsTable .position, .driverDetailsTable .driversGrid, .driverDetailsTable .driversRace {
 	color: #000;
 }
 
@@ -282,3 +305,6 @@ td {
 }
 
 /* DRIVERS DETAILS END*/
+
+/*Driver details table*/
+

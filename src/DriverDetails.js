@@ -12,6 +12,8 @@ export default class DriverDetails extends React.Component {
 			drivers: [],
 			flags: [],
 			races: [],
+			colors: ["", "yellow", "gray", "orange", "lightgreen", "lightblue", "greenyellow", "cadetblue", "wheat", "aquamarine", "coral", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey"]
+
 		};
 	}
 	componentDidMount() {
@@ -265,11 +267,13 @@ export default class DriverDetails extends React.Component {
 												<p>{race.raceName}</p>
 											</Link>
 										</td>
-										<td>
+										<td className="driversTeam">
 											{race.Results[0].Constructor.name}
 										</td>
-										<td>{race.Results[0].grid}</td>
-										<td>{race.Results[0].position}</td>
+										<td className="driversGrid">{race.Results[0].grid}</td>
+										
+										
+										<td className="driversRace" style={{backgroundColor: this.state.colors[race.Results[0].position]}}>{race.Results[0].position}</td>
 									</tr>
 								);
 							})}
