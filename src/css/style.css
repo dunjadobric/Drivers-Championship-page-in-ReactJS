@@ -149,7 +149,7 @@ body {
 	font-size: 1.1rem;
 }
 
- .races table thead tr:nth-child(2) th, 
+.races table thead tr:nth-child(2) th,
 .driverDetailsTable table thead tr:nth-child(2) th {
 	color: #000;
 	border: none;
@@ -189,7 +189,9 @@ body {
 	color: #000;
 }
 
-.driverDetailsTable .position, .driverDetailsTable .driversGrid, .driverDetailsTable .driversRace {
+.driverDetailsTable .position,
+.driverDetailsTable .driversGrid,
+.driverDetailsTable .driversRace {
 	color: #000;
 }
 
@@ -256,8 +258,7 @@ body {
 	width: 200px;
 	height: 200px;
 	margin-bottom: 15px;
-    
-} 
+}
 
 .driverCard .driverPhoto img {
 	object-fit: cover;
@@ -310,7 +311,10 @@ td {
 	justify-content: center;
 }
 
+.driverDetailsTable table {
+	margin-top: 30px;
+}
+
 /* DRIVERS DETAILS END*/
 
 /*Driver details table*/
-

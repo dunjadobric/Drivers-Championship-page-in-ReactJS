@@ -12,8 +12,32 @@ export default class DriverDetails extends React.Component {
 			drivers: [],
 			flags: [],
 			races: [],
-			colors: ["", "yellow", "gray", "orange", "lightgreen", "lightblue", "greenyellow", "cadetblue", "wheat", "aquamarine", "coral", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey", "darkgrey"]
-
+			colors: [
+				"",
+				"yellow",
+				"gray",
+				"orange",
+				"lightgreen",
+				"lightblue",
+				"greenyellow",
+				"cadetblue",
+				"wheat",
+				"aquamarine",
+				"coral",
+				"darkgrey",
+				"darkgrey",
+				"darkgrey",
+				"darkgrey",
+				"darkgrey",
+				"darkgrey",
+				"darkgrey",
+				"darkgrey",
+				"darkgrey",
+				"darkgrey",
+				"darkgrey",
+				"darkgrey",
+				"darkgrey",
+			],
 		};
 	}
 	componentDidMount() {
@@ -73,7 +97,15 @@ export default class DriverDetails extends React.Component {
 							<div key={i}>
 								<div className="driverHeading">
 									<div className="driverPhoto">
-										<img src={"../img/drivers/" + driver.Driver.givenName + "_" + driver.Driver.familyName + ".jpg"} />
+										<img
+											src={
+												"../img/drivers_new/" +
+												driver.Driver.givenName +
+												"_" +
+												driver.Driver.familyName +
+												".png"
+											}
+										/>
 									</div>
 									<div className="driverNameContent">
 										<div>
@@ -81,9 +113,9 @@ export default class DriverDetails extends React.Component {
 												if (
 													driver.Driver
 														.nationality ===
-													"British" &&
+														"British" &&
 													flag.nationality ===
-													"British, UK"
+														"British, UK"
 												) {
 													return (
 														<Flag
@@ -95,9 +127,9 @@ export default class DriverDetails extends React.Component {
 												} else if (
 													driver.Driver
 														.nationality ===
-													"Dutch" &&
+														"Dutch" &&
 													flag.nationality ===
-													"Dutch, Netherlandic"
+														"Dutch, Netherlandic"
 												) {
 													return (
 														<Flag
@@ -150,7 +182,15 @@ export default class DriverDetails extends React.Component {
 									<tr>
 										<th>Biography:</th>
 										<td>
-											<Link to={"///en.wikipedia.org/wiki/" + driver.Driver.givenName + "_" + driver.Driver.familyName} target={"_blank"}>
+											<Link
+												to={
+													"///en.wikipedia.org/wiki/" +
+													driver.Driver.givenName +
+													"_" +
+													driver.Driver.familyName
+												}
+												target={"_blank"}
+											>
 												<i class="fa fa-external-link"></i>
 											</Link>
 										</td>
@@ -189,9 +229,9 @@ export default class DriverDetails extends React.Component {
 															race.Circuit
 																.Location
 																.country ===
-															"UK" &&
+																"UK" &&
 															flag.en_short_name ===
-															"United Kingdom of Great Britain and Northern Ireland"
+																"United Kingdom of Great Britain and Northern Ireland"
 														) {
 															return (
 																<Flag
@@ -204,9 +244,9 @@ export default class DriverDetails extends React.Component {
 															race.Circuit
 																.Location
 																.country ===
-															"Korea" &&
+																"Korea" &&
 															flag.en_short_name ===
-															"Korea (Republic of)"
+																"Korea (Republic of)"
 														) {
 															return (
 																<Flag
@@ -218,9 +258,9 @@ export default class DriverDetails extends React.Component {
 															race.Circuit
 																.Location
 																.country ===
-															"UAE" &&
+																"UAE" &&
 															flag.en_short_name ===
-															"United Arab Emirates"
+																"United Arab Emirates"
 														) {
 															return (
 																<Flag
@@ -232,9 +272,9 @@ export default class DriverDetails extends React.Component {
 															race.Circuit
 																.Location
 																.country ===
-															"USA" &&
+																"USA" &&
 															flag.en_short_name ===
-															"United States of America"
+																"United States of America"
 														) {
 															return (
 																<Flag
@@ -270,10 +310,21 @@ export default class DriverDetails extends React.Component {
 										<td className="driversTeam">
 											{race.Results[0].Constructor.name}
 										</td>
-										<td className="driversGrid">{race.Results[0].grid}</td>
+										<td className="driversGrid">
+											{race.Results[0].grid}
+										</td>
 
-
-										<td className="driversRace" style={{ backgroundColor: this.state.colors[race.Results[0].position] }}>{race.Results[0].position}</td>
+										<td
+											className="driversRace"
+											style={{
+												backgroundColor:
+													this.state.colors[
+														race.Results[0].position
+													],
+											}}
+										>
+											{race.Results[0].position}
+										</td>
 									</tr>
 								);
 							})}
