@@ -227,12 +227,27 @@ body {
 	margin-bottom: 30px;
 }
 
+.driverPhoto {
+	width: 150px;
+	height: 200px;
+}
+
 .driverCard .driverPhoto img {
 	object-fit: cover;
-	width: 150px;
-	height: 150px;
+	/* width: 150px;
+	height: 150px; */
+	/* width: 60%;
+	height: 60%; */
+	max-width: 100%;
+	height: auto;
 	border-radius: 15px;
-	margin-right: 30px;
+	/* margin-right: 30px; */
+}
+
+.driverNameContent {
+	display: flex;
+    flex-direction: column;
+    padding-left: 15px;
 }
 
 .driverName {

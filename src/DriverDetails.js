@@ -73,7 +73,7 @@ export default class DriverDetails extends React.Component {
 									<div className="driverPhoto">
 										<img src={"../img/drivers/" + driver.Driver.givenName + "_" + driver.Driver.familyName + ".jpg"} />
 									</div>
-									<div>
+									<div className="driverNameContent">
 										<div>
 											{this.state.flags.map((flag, i) => {
 												if (
@@ -158,7 +158,7 @@ export default class DriverDetails extends React.Component {
 						);
 					})}
 				</div>
-				<div class="driverDetailsTable">
+				<div className="driverDetailsTable">
 					<table>
 						<thead>
 							<tr>
