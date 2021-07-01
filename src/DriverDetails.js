@@ -72,8 +72,13 @@ export default class DriverDetails extends React.Component {
 						return (
 							<div key={i}>
 								<div className="driverHeading">
-									<div className="driverPhoto">
-										<img src={"../img/drivers/" + driver.Driver.givenName + "_" + driver.Driver.familyName + ".jpg"} />
+									<div className="driverPhoto"
+										style={{  
+												backgroundImage: "url(" + "../img/drivers/" + driver.Driver.givenName + "_" + driver.Driver.familyName + ".jpg" + ")",
+												backgroundPosition: 'center',
+												backgroundSize: 'cover',
+												backgroundRepeat: 'no-repeat'
+											}}>
 									</div>
 									<div className="driverNameContent">
 										<div>

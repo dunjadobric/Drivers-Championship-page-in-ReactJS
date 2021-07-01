@@ -245,14 +245,17 @@ body {
 }
 
 .driverHeading {
-	display: flex;
-	justify-content: center;
+	/* display: flex;
+	justify-content: center; */
 	margin-bottom: 30px;
+	width: auto;
 }
 
 .driverPhoto {
-	width: 150px;
+	/* width: 200px; */
+	width: auto;
 	height: 200px;
+	margin-bottom: 15px;
 }
 
 .driverCard .driverPhoto img {
@@ -268,9 +271,11 @@ body {
 }
 
 .driverNameContent {
-	display: flex;
+	display: block;
+	margin-left: 10px;
+	/* display: flex;
     flex-direction: column;
-    padding-left: 15px;
+    padding-left: 15px; */
 }
 
 .driverName {
