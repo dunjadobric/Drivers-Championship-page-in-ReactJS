@@ -128,7 +128,7 @@ export default class Teams extends React.Component {
 										<p>{team.Constructor.name}</p>
 									</td>
 									<td>
-										<Link to="#">Details</Link>
+										<Link to={`/teamsDetails/${team.Constructor.constructorId}`}>Details</Link>
 									</td>
 									<td className="points">{team.points}</td>
 								</tr>

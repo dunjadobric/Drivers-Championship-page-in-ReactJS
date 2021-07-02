@@ -3,6 +3,7 @@ import * as $ from "jquery";
 import { Link } from "react-router-dom";
 import Flag from "react-flagkit";
 import { FlagSpinner } from "react-spinners-kit";
+import { getDerivedStateFromError } from "react-addons-css-transition-group";
 
 export default class DriversTable extends React.Component {
 	constructor() {
@@ -16,34 +17,49 @@ export default class DriversTable extends React.Component {
 	}
 
 	componentDidMount() {
-		this.getResponse();
-		this.getFlags();
+		this.getDriver()
+		// this.getResponse();
+		// this.getFlags();
 	}
 
-	getResponse() {
-		var url = "http://ergast.com/api/f1/2013/driverStandings.json";
-		$.get(url, (data) => {
-			console.log(data);
-			this.setState({
-				drivers:
-					data.MRData.StandingsTable.StandingsLists[0]
-						.DriverStandings,
-				isLoading: false,
-			});
-		});
-	}
-	getFlags() {
-		var url =
-			"https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json";
+	getDriver(){
+		var urlResponse = $.ajax(`http://ergast.com/api/f1/2013/driverStandings.json`);
+		var urlFlags = $.ajax(`https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json`);
 
-		$.get(url, (data) => {
-			var flags = JSON.parse(data);
+		$.when(urlResponse, urlFlags).done(function(data1, data2) {
 			this.setState({
-				flags: flags,
-				// isLoading: false,
-			});
-		});
+				drivers: data1[0].MRData.StandingsTable.StandingsLists[0]
+				.DriverStandings,
+				flags: JSON.parse(data2[0]),
+				isLoading: false
+			})
+		}.bind(this))
 	}
+
+	// getResponse() {
+	// 	var url = "http://ergast.com/api/f1/2013/driverStandings.json";
+	// 	$.get(url, (data) => {
+	// 		console.log(data);
+	// 		this.setState({
+	// 			drivers:
+	// 				data.MRData.StandingsTable.StandingsLists[0]
+	// 					.DriverStandings,
+	// 			isLoading: false,
+	// 		});
+	// 	});
+	// }
+	// getFlags() {
+	// 	var url =
+	// 		"https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json";
+
+	// 	$.get(url, (data) => {
+	// 		var flags = JSON.parse(data);
+	// 		this.setState({
+	// 			flags: flags,
+	// 			// isLoading: false,
+	// 		});
+	// 	});
+	// }
 
 	render() {
 		console.log(this.state.flags);

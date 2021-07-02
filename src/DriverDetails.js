@@ -42,50 +42,70 @@ export default class DriverDetails extends React.Component {
 		};
 	}
 	componentDidMount() {
-		this.getDrivers();
-		this.getFlags();
-		this.getRaces();
+		
+		this.getDrivers(this.props.match.params.id)
+		// this.getDrivers();
+		// this.getFlags();
+		// this.getRaces();
 	}
 
-	getDrivers() {
-		const id = this.props.match.params.id;
-		console.log(id);
-		var url =
-			"http://ergast.com/api/f1/2013/drivers/" +
-			id +
-			"/driverStandings.json";
-		$.get(url, (data) => {
-			console.log(data);
+	getDrivers(id){
+		var urlDrivers = $.ajax(`http://ergast.com/api/f1/2013/drivers/${id}/driverStandings.json`);
+		var urlFlags = $.ajax(`https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json`);
+		var urlRaces = $.ajax(`http://ergast.com/api/f1/2013/drivers/${id}/results.json`);
+
+		$.when(urlDrivers,urlFlags,urlRaces).done(function (data1,data2,data3) {
 			this.setState({
 				drivers:
-					data.MRData.StandingsTable.StandingsLists[0]
+					data1[0].MRData.StandingsTable.StandingsLists[0]
 						.DriverStandings,
-			});
-		});
-	}
-	getFlags() {
-		var url =
-			"https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json";
+				flags: JSON.parse(data2[0]),
+				races: data3[0].MRData.RaceTable.Races,
+				
 
-		$.get(url, (data) => {
-			var flags = JSON.parse(data);
-			this.setState({
-				flags: flags,
-			});
-		});
+			})
+		}.bind(this))
 	}
 
-	getRaces() {
-		const id = this.props.match.params.id;
-		var url =
-			"http://ergast.com/api/f1/2013/drivers/" + id + "/results.json";
-		$.get(url, (data) => {
-			console.log(data);
-			this.setState({
-				races: data.MRData.RaceTable.Races,
-			});
-		});
-	}
+	// getDrivers() {
+	// 	const id = this.props.match.params.id;
+	// 	console.log(id);
+	// 	var url =
+	// 		"http://ergast.com/api/f1/2013/drivers/" +
+	// 		id +
+	// 		"/driverStandings.json";
+	// 	$.get(url, (data) => {
+	// 		console.log(data);
+	// 		this.setState({
+	// 			drivers:
+	// 				data.MRData.StandingsTable.StandingsLists[0]
+	// 					.DriverStandings,
+	// 		});
+	// 	});
+	// }
+	// getFlags() {
+	// 	var url =
+	// 		"https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json";
+
+	// 	$.get(url, (data) => {
+	// 		var flags = JSON.parse(data);
+	// 		this.setState({
+	// 			flags: flags,
+	// 		});
+	// 	});
+	// }
+
+	// getRaces() {
+	// 	const id = this.props.match.params.id;
+	// 	var url =
+	// 		"http://ergast.com/api/f1/2013/drivers/" + id + "/results.json";
+	// 	$.get(url, (data) => {
+	// 		console.log(data);
+	// 		this.setState({
+	// 			races: data.MRData.RaceTable.Races,
+	// 		});
+	// 	});
+	// }
 
 	render() {
 		console.log(this.state.drivers);
