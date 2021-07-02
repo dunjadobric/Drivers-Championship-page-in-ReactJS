@@ -13,7 +13,7 @@ export default class DriverDetails extends React.Component {
 			flags: [],
 			races: [],
 			colors: [
-				"",
+		
 				"yellow",
 				"gray",
 				"orange",
@@ -24,6 +24,7 @@ export default class DriverDetails extends React.Component {
 				"wheat",
 				"aquamarine",
 				"coral",
+				"darkgrey",
 				"darkgrey",
 				"darkgrey",
 				"darkgrey",
@@ -319,7 +320,7 @@ export default class DriverDetails extends React.Component {
 											style={{
 												backgroundColor:
 													this.state.colors[
-														race.Results[0].position
+														parseInt(race.Results[0].position) -1
 													],
 											}}
 										>
