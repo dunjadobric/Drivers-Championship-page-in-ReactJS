@@ -40,7 +40,7 @@ export default class DriversTable extends React.Component {
 			var flags = JSON.parse(data);
 			this.setState({
 				flags: flags,
-				isLoading: false,
+				// isLoading: false,
 			});
 		});
 	}
