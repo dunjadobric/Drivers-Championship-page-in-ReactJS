@@ -1,0 +1,42 @@
+.teams {
+    
+    @include tableParentDiv;
+
+    h2 {
+        @include tableParentDivHeadline;
+    }
+
+    table {
+        @include table;
+
+        thead {
+            @include tableThead;
+
+            th {
+                @include tableTh;
+            }
+        }
+
+        tbody {
+
+            tr {
+
+                td {
+                    @include tableTd;
+                }
+
+                .position {
+                    @include positionCol;
+                }
+
+                .points {
+                    color: $color-black;
+                }
+
+                a {
+                    @include anchor;
+                }
+            }
+        }
+    }
+}
