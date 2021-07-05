@@ -13,7 +13,33 @@ export default class TeamsDetails extends React.Component {
         this.state = {
             teams: [],
             flags: [],
-            // teamResults : []
+            teamResults: [],
+            colors: [
+                "yellow",
+                "gray",
+                "orange",
+                "lightgreen",
+                "lightblue",
+                "greenyellow",
+                "cadetblue",
+                "wheat",
+                "aquamarine",
+                "coral",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+                "darkgrey",
+            ]
         }
     }
 
@@ -24,15 +50,15 @@ export default class TeamsDetails extends React.Component {
     getTeamDetails(id) {
         var urlTeams = $.ajax(`http://ergast.com/api/f1/2013/constructors/${id}/constructorStandings.json`);
         var urlFlags = $.ajax(`https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json`);
-        // var urlTeamResults = $.ajax(`http://ergast.com/api/f1/2013/constructors/${id}/results.json `)
-        
-        $.when(urlTeams, urlFlags).done(function (data1, data2) {
+        var urlTeamResults = $.ajax(`http://ergast.com/api/f1/2013/constructors/${id}/results.json `)
+
+        $.when(urlTeams, urlFlags, urlTeamResults).done(function (data1, data2, data3) {
             this.setState({
                 teams:
                     data1[0].MRData.StandingsTable.StandingsLists[0]
                         .ConstructorStandings,
                 flags: JSON.parse(data2[0]),
-                // teamResults: data3[0].MRData.RaceTable.Races
+                teamResults: data3[0].MRData.RaceTable.Races
 
 
             })
@@ -42,20 +68,20 @@ export default class TeamsDetails extends React.Component {
     render() {
         console.log(this.state.teams)
         return (
-            <div>
-                <div>
+            <div className="driverDetails">
+                <div className="driverCard">
                     {this.state.teams.map((team, i) => {
                         return (
-                            <div key={i} style={{ backgroundColor: "gray", width: "350px" }}>
+                            <div>
                                 <div className="driverHeading">
                                     <div className="driverPhoto">
                                         <img
-											src={
-												"../img/teams_crests/" +
-												team.Constructor.name +
-												".jpg"
-											}
-										/>
+                                            src={
+                                                "../img/teams_crests/" +
+                                                team.Constructor.name +
+                                                ".jpg"
+                                            }
+                                        />
                                     </div>
                                     <div className="driverNameContent">
                                         <div>
@@ -109,9 +135,6 @@ export default class TeamsDetails extends React.Component {
                                         </div>
                                         <div className="driverName">
                                             <div>{team.Constructor.name}</div>
-                                            <div>
-                                                {/* {driver.Driver.familyName} */}
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -150,137 +173,146 @@ export default class TeamsDetails extends React.Component {
                         )
                     })}
                 </div>
-                {/* <div className="driverDetailsTable">
-					<table>
-						<thead>
-							<tr>
-								<th colSpan="5">Formula 1 2013 Results</th>
-							</tr>
-							<tr>
-								<th>Round</th>
-								<th>Grand Prix</th>
-								<th>Team</th>
-								<th>Team</th>
-								<th>Points</th>
-							</tr>
-						</thead>
-						<tbody>
-							{this.state.teamResults.map((race, i) => {
-								return (
-									<tr key={i}>
-										<td className="position">
-											{race.round}
-										</td>
-										<td className="constructorRaces">
-											<Link to="#">
-												{this.state.flags.map(
-													(flag, i) => {
-														if (
-															race.Circuit
-																.Location
-																.country ===
-																"UK" &&
-															flag.en_short_name ===
-																"United Kingdom of Great Britain and Northern Ireland"
-														) {
-															return (
-																<Flag
-																	key={i}
-																	country="GB"
-																	size={30}
-																/>
-															);
-														} else if (
-															race.Circuit
-																.Location
-																.country ===
-																"Korea" &&
-															flag.en_short_name ===
-																"Korea (Republic of)"
-														) {
-															return (
-																<Flag
-																	key={i}
-																	country="KR"
-																/>
-															);
-														} else if (
-															race.Circuit
-																.Location
-																.country ===
-																"UAE" &&
-															flag.en_short_name ===
-																"United Arab Emirates"
-														) {
-															return (
-																<Flag
-																	key={i}
-																	country="AE"
-																/>
-															);
-														} else if (
-															race.Circuit
-																.Location
-																.country ===
-																"USA" &&
-															flag.en_short_name ===
-																"United States of America"
-														) {
-															return (
-																<Flag
-																	key={i}
-																	country="US"
-																/>
-															);
-														} else {
-															if (
-																race.Circuit
-																	.Location
-																	.country ===
-																flag.en_short_name
-															) {
-																return (
-																	<Flag
-																		key={i}
-																		country={
-																			flag.alpha_2_code
-																		}
-																		size={
-																			30
-																		}
-																	/>
-																);
-															}
-														}
-													}
-												)}
-												<p>{race.raceName}</p>
-											</Link>
-										</td>
-										<td className="driversTeam">
-											{race.Results[0].Constructor.name}
-										</td>
-										<td className="driversGrid">
-											{race.Results[0].grid}
-										</td>
+                <div className="driverDetailsTable">
+                    <table>
 
-										<td
-											className="driversRace"
-											style={{
-												backgroundColor:
-													this.state.colors[
-														parseInt(race.Results[0].position) -1
-													],
-											}}
-										>
-											{race.Results[0].position}
-										</td>
-									</tr>
-								);
-							})}
-						</tbody>
-					</table>
-				</div> */}
+                        <thead>
+                            <tr>
+                                <th colSpan="5">Formula 1 2013 Results</th>
+                            </tr>
+                            {this.state.teamResults.map((race, i) => {
+                                if (i < 1) {
+                                    return (
+                                        <tr key={i}>
+                                            <th>Round</th>
+                                            <th>Grand Prix</th>
+                                            <th>{race.Results[0].Driver.familyName}</th>
+                                            <th>{race.Results[1].Driver.familyName}</th>
+                                            <th>Points</th>
+                                        </tr>
+                                    )
+                                }
+
+                            })}
+
+                        </thead>
+                        <tbody>
+                            {this.state.teamResults.map((race, i) => {
+                                return (
+                                    <tr key={i}>
+                                        <td className="position">
+                                            {race.round}
+                                        </td>
+                                        <td className="constructorRaces">
+                                            <Link to="#">
+                                                {this.state.flags.map(
+                                                    (flag, i) => {
+                                                        if (
+                                                            race.Circuit
+                                                                .Location
+                                                                .country ===
+                                                            "UK" &&
+                                                            flag.en_short_name ===
+                                                            "United Kingdom of Great Britain and Northern Ireland"
+                                                        ) {
+                                                            return (
+                                                                <Flag
+                                                                    key={i}
+                                                                    country="GB"
+                                                                    size={30}
+                                                                />
+                                                            );
+                                                        } else if (
+                                                            race.Circuit
+                                                                .Location
+                                                                .country ===
+                                                            "Korea" &&
+                                                            flag.en_short_name ===
+                                                            "Korea (Republic of)"
+                                                        ) {
+                                                            return (
+                                                                <Flag
+                                                                    key={i}
+                                                                    country="KR"
+                                                                />
+                                                            );
+                                                        } else if (
+                                                            race.Circuit
+                                                                .Location
+                                                                .country ===
+                                                            "UAE" &&
+                                                            flag.en_short_name ===
+                                                            "United Arab Emirates"
+                                                        ) {
+                                                            return (
+                                                                <Flag
+                                                                    key={i}
+                                                                    country="AE"
+                                                                />
+                                                            );
+                                                        } else if (
+                                                            race.Circuit
+                                                                .Location
+                                                                .country ===
+                                                            "USA" &&
+                                                            flag.en_short_name ===
+                                                            "United States of America"
+                                                        ) {
+                                                            return (
+                                                                <Flag
+                                                                    key={i}
+                                                                    country="US"
+                                                                />
+                                                            );
+                                                        } else {
+                                                            if (
+                                                                race.Circuit
+                                                                    .Location
+                                                                    .country ===
+                                                                flag.en_short_name
+                                                            ) {
+                                                                return (
+                                                                    <Flag
+                                                                        key={i}
+                                                                        country={
+                                                                            flag.alpha_2_code
+                                                                        }
+                                                                        size={
+                                                                            30
+                                                                        }
+                                                                    />
+                                                                );
+                                                            }
+                                                        }
+                                                    }
+                                                )}
+                                                <p>{race.raceName}</p>
+                                            </Link>
+                                        </td>
+                                        <td className="driversTeam">
+                                            {race.Results[0].points}
+                                        </td>
+                                        <td className="driversGrid">
+                                            {race.Results[1].points}
+                                        </td>
+
+                                        <td
+                                            className="driversRace"
+                                            style={{
+                                                backgroundColor:
+                                                    this.state.colors[
+                                                    parseInt(race.Results[0].position) - 1
+                                                    ],
+                                            }}
+                                        >
+                                            {parseInt(race.Results[0].points) + parseInt(race.Results[1].points)}
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
 

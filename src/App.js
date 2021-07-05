@@ -1,6 +1,5 @@
 import React from "react";
-//import "./css/style.css";
-import "./scss/style.scss";
+import "./css/style.css";
 import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import * as $ from "jquery";
 var ReactCSSTransitionGroup = require("react-addons-css-transition-group");
@@ -12,6 +11,7 @@ import Races from "./Races";
 import Flag from 'react-flagkit';
 import DriverDetails from "./DriverDetails";
 import TeamsDetails from "./TeamsDetails";
+
 
 
 export default class App extends React.Component {
