@@ -12,6 +12,7 @@ import Races from "./Races";
 import Flag from 'react-flagkit';
 import DriverDetails from "./DriverDetails";
 import TeamsDetails from "./TeamsDetails";
+import RacesDetails from "./RacesDetails";
 
 
 
@@ -55,6 +56,7 @@ export default class App extends React.Component {
                         <Route path="/races" component={Races}/>
                         <Route path="/driverDetails/:id" exact component={DriverDetails}/>
                         <Route path="/teamsDetails/:id" exact component={TeamsDetails}/>
+                        <Route path="/racesDetails/:id" exact component={RacesDetails}/>
                     </div>
                 </div>
             </Router>

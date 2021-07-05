@@ -82,8 +82,8 @@ export default class Races extends React.Component {
 							return (
 								<tr key={i}>
 									<td className="position">{race.round}</td>
-									<td className="constructorRaces">
-										<Link to="#">
+									<td><div className="constructorRaces">
+										<Link to={`/racesDetails/${race.round}`}>
 											{this.state.flags.map((flag, i) => {
 												if (
 													race.Circuit.Location
@@ -154,6 +154,7 @@ export default class Races extends React.Component {
 											})}
 											<p>{race.raceName}</p>
 										</Link>
+										</div>
 									</td>
 									<td className="circuit">
 										{race.Circuit.circuitName}
