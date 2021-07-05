@@ -104,57 +104,59 @@ export default class DriversTable extends React.Component {
 									<td className="driverPosition">
 										{driver.position}
 									</td>
-									<td className="fullName">
-										{this.state.flags.map((flag, i) => {
-											if (
-												driver.Driver.nationality ===
-													"British" &&
-												flag.nationality ===
-													"British, UK"
-											) {
-												return (
-													<Flag
-														key={i}
-														country="GB"
-													/>
-												);
-											} else if (
-												driver.Driver.nationality ===
-													"Dutch" &&
-												flag.nationality ===
-													"Dutch, Netherlandic"
-											) {
-												return (
-													<Flag
-														key={i}
-														country="NL"
-													/>
-												);
-											} else {
+									<td>
+										<div className="fullName">
+											{this.state.flags.map((flag, i) => {
 												if (
-													driver.Driver
-														.nationality ===
-													flag.nationality
+													driver.Driver.nationality ===
+														"British" &&
+													flag.nationality ===
+														"British, UK"
 												) {
 													return (
 														<Flag
 															key={i}
-															country={
-																flag.alpha_2_code
-															}
+															country="GB"
 														/>
 													);
+												} else if (
+													driver.Driver.nationality ===
+														"Dutch" &&
+													flag.nationality ===
+														"Dutch, Netherlandic"
+												) {
+													return (
+														<Flag
+															key={i}
+															country="NL"
+														/>
+													);
+												} else {
+													if (
+														driver.Driver
+															.nationality ===
+														flag.nationality
+													) {
+														return (
+															<Flag
+																key={i}
+																country={
+																	flag.alpha_2_code
+																}
+															/>
+														);
+													}
 												}
-											}
-										})}
+											})}
 
-										<Link
-											to={`/driverDetails/${driver.Driver.driverId}`}
-										>
-											{driver.Driver.givenName +
-												" " +
-												driver.Driver.familyName}
-										</Link>
+											<Link
+												to={`/driverDetails/${driver.Driver.driverId}`}
+											>
+												{driver.Driver.givenName +
+													" " +
+													driver.Driver.familyName}
+											</Link>
+										</div>
 									</td>
 									<td className="constructor">
 										{driver.Constructors[0].name}

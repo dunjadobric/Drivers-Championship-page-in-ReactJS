@@ -80,52 +80,54 @@ export default class Teams extends React.Component {
 									<td className="position">
 										{team.position}
 									</td>
-									<td className="constructorTeams">
-										{this.state.flags.map((flag, i) => {
-											if (
-												team.Constructor.nationality ===
-													"British" &&
-												flag.nationality ===
-													"British, UK"
-											) {
-												return (
-													<Flag
-														key={i}
-														country="GB"
-														size={30}
-													/>
-												);
-											} else if (
-												team.Constructor.nationality ===
-													"Dutch" &&
-												flag.nationality ===
-													"Dutch, Netherlandic"
-											) {
-												return (
-													<Flag
-														key={i}
-														country="NL"
-													/>
-												);
-											} else {
+									<td>
+										<div className="constructorTeams">
+											{this.state.flags.map((flag, i) => {
 												if (
-													team.Constructor
-														.nationality ===
-													flag.nationality
+													team.Constructor.nationality ===
+														"British" &&
+													flag.nationality ===
+														"British, UK"
 												) {
 													return (
 														<Flag
 															key={i}
-															country={
-																flag.alpha_2_code
-															}
+															country="GB"
 															size={30}
 														/>
 													);
+												} else if (
+													team.Constructor.nationality ===
+														"Dutch" &&
+													flag.nationality ===
+														"Dutch, Netherlandic"
+												) {
+													return (
+														<Flag
+															key={i}
+															country="NL"
+														/>
+													);
+												} else {
+													if (
+														team.Constructor
+															.nationality ===
+														flag.nationality
+													) {
+														return (
+															<Flag
+																key={i}
+																country={
+																	flag.alpha_2_code
+																}
+																size={30}
+															/>
+														);
+													}
 												}
-											}
-										})}
-										<p>{team.Constructor.name}</p>
+											})}
+											<p>{team.Constructor.name}</p>
+										</div>
 									</td>
 									<td>
 										<Link to={`/teamsDetails/${team.Constructor.constructorId}`}>Details   <i class="fa fa-external-link"></i></Link>

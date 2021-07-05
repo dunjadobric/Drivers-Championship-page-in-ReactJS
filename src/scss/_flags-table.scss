@@ -1,24 +1,30 @@
-//CSS kod
-// .drivers .fullName a,
-// .constructorTeams,
-// .constructorRaces a,
-// .winner {
-// 	color: inherit;
-// 	display: flex;
-// 	flex-direction: row;
-// }
+/*drivers details*/
+/*teams details*/
+.constructorRaces a {
+    color: inherit;
+ 	display: flex;
+  	align-items: center;
 
-// .drivers .fullName a img,
-// .constructorTeams img,
-// .constructorRaces a img,
-// .winner img {
-// 	display: flex;
-// 	align-self: center;
-// }
+    img {
+        margin-right: 10px;
+    }
+}
 
-// .drivers .fullName a p,
-// .constructorTeams p,
-// .constructorRaces a p,
-// .winner p {
-// 	padding: 10px;
-// }
+/*teams div*/
+/*races div*/
+.constructorTeams {
+    color: inherit;
+ 	display: flex;
+  	align-items: center;
+
+      img {
+          display: flex;
+          align-self: center;
+      }
+
+      p {
+          padding: 10px;
+      }
+}
+
+
