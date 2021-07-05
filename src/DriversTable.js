@@ -17,23 +17,30 @@ export default class DriversTable extends React.Component {
 	}
 
 	componentDidMount() {
-		this.getDriver()
+		this.getDriver();
 		// this.getResponse();
 		// this.getFlags();
 	}
 
-	getDriver(){
-		var urlResponse = $.ajax(`http://ergast.com/api/f1/2013/driverStandings.json`);
-		var urlFlags = $.ajax(`https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json`);
+	getDriver() {
+		var urlResponse = $.ajax(
+			`http://ergast.com/api/f1/2013/driverStandings.json`
+		);
+		var urlFlags = $.ajax(
+			`https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json`
+		);
 
-		$.when(urlResponse, urlFlags).done(function(data1, data2) {
-			this.setState({
-				drivers: data1[0].MRData.StandingsTable.StandingsLists[0]
-				.DriverStandings,
-				flags: JSON.parse(data2[0]),
-				isLoading: false
-			})
-		}.bind(this))
+		$.when(urlResponse, urlFlags).done(
+			function (data1, data2) {
+				this.setState({
+					drivers:
+						data1[0].MRData.StandingsTable.StandingsLists[0]
+							.DriverStandings,
+					flags: JSON.parse(data2[0]),
+					isLoading: false,
+				});
+			}.bind(this)
+		);
 	}
 
 	// getResponse() {

@@ -13,7 +13,6 @@ export default class DriverDetails extends React.Component {
 			flags: [],
 			races: [],
 			colors: [
-		
 				"yellow",
 				"gray",
 				"orange",
@@ -42,29 +41,34 @@ export default class DriverDetails extends React.Component {
 		};
 	}
 	componentDidMount() {
-		
-		this.getDrivers(this.props.match.params.id)
+		this.getDrivers(this.props.match.params.id);
 		// this.getDrivers();
 		// this.getFlags();
 		// this.getRaces();
 	}
 
-	getDrivers(id){
-		var urlDrivers = $.ajax(`http://ergast.com/api/f1/2013/drivers/${id}/driverStandings.json`);
-		var urlFlags = $.ajax(`https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json`);
-		var urlRaces = $.ajax(`http://ergast.com/api/f1/2013/drivers/${id}/results.json`);
+	getDrivers(id) {
+		var urlDrivers = $.ajax(
+			`http://ergast.com/api/f1/2013/drivers/${id}/driverStandings.json`
+		);
+		var urlFlags = $.ajax(
+			`https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json`
+		);
+		var urlRaces = $.ajax(
+			`http://ergast.com/api/f1/2013/drivers/${id}/results.json`
+		);
 
-		$.when(urlDrivers,urlFlags,urlRaces).done(function (data1,data2,data3) {
-			this.setState({
-				drivers:
-					data1[0].MRData.StandingsTable.StandingsLists[0]
-						.DriverStandings,
-				flags: JSON.parse(data2[0]),
-				races: data3[0].MRData.RaceTable.Races,
-				
-
-			})
-		}.bind(this))
+		$.when(urlDrivers, urlFlags, urlRaces).done(
+			function (data1, data2, data3) {
+				this.setState({
+					drivers:
+						data1[0].MRData.StandingsTable.StandingsLists[0]
+							.DriverStandings,
+					flags: JSON.parse(data2[0]),
+					races: data3[0].MRData.RaceTable.Races,
+				});
+			}.bind(this)
+		);
 	}
 
 	// getDrivers() {
@@ -340,7 +344,10 @@ export default class DriverDetails extends React.Component {
 											style={{
 												backgroundColor:
 													this.state.colors[
-														parseInt(race.Results[0].position) -1
+														parseInt(
+															race.Results[0]
+																.position
+														) - 1
 													],
 											}}
 										>

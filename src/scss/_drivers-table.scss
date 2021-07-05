@@ -1,61 +1,50 @@
 .drivers {
-    @include tableParentDiv;
+	@include tableParentDiv;
 
-    h2 {
-        @include tableParentDivHeadline;
-    }
+	h2 {
+		@include tableParentDivHeadline;
+	}
 
-    table {
-        @include table;
+	table {
+		@include table;
 
-        thead {
-            @include tableThead;
+		thead {
+			@include tableThead;
 
-            th {
-                @include tableTh;
-            }
-        }
+			th {
+				@include tableTh;
+			}
+		}
 
-        tbody {
+		tbody {
+			tr {
+				td {
+					@include tableTd;
+				}
 
-            tr {
+				.driverPosition {
+					@include positionCol;
+				}
 
-                td {
-                    @include tableTd;
-                }
+				.points {
+					color: $color-black;
+				}
 
-                .driverPosition {
-                    @include positionCol;
-                }
+				a {
+					@include anchor;
+					border: none;
+					outline: none;
+				}
 
-                .points {
-                    color: $color-black;
-                }
-
-                a {
-                    @include anchor;
-                    border: none;
-                    outline: none;
-                }
-
-                /*td klasa*/
-                .fullName {
-                    display: flex;
-                    align-items: center;
-                    box-sizing: border-box;
-                    border-bottom: none;
-                    border: none;
-                    outline: none;
-
-                    img {
-                        margin-right: 10px;
-                        border: none;
-                        outline: none;
-                    }
-                }
-            }
-        }
-    }
-
-    
+				/*td klasa*/
+				.fullName {
+					display: flex;
+					align-items: center;
+					img {
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+	}
 }
