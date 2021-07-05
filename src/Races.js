@@ -159,43 +159,45 @@ export default class Races extends React.Component {
 										{race.Circuit.circuitName}
 									</td>
 									<td className="date">{race.date}</td>
-									<td className="winner">
-										{this.state.flags.map((flag, i) => {
-											if (
-												race.Results[0].Driver
-													.nationality ===
-													"British" &&
-												flag.nationality ===
-													"British, UK"
-											) {
-												return (
-													<Flag
-														key={i}
-														country="GB"
-														size={30}
-													/>
-												);
-											} else {
+									<td>
+										<div className="winner">
+											{this.state.flags.map((flag, i) => {
 												if (
 													race.Results[0].Driver
 														.nationality ===
-													flag.nationality
+														"British" &&
+													flag.nationality ===
+														"British, UK"
 												) {
 													return (
 														<Flag
 															key={i}
-															country={
-																flag.alpha_2_code
-															}
+															country="GB"
 															size={30}
 														/>
 													);
+												} else {
+													if (
+														race.Results[0].Driver
+															.nationality ===
+														flag.nationality
+													) {
+														return (
+															<Flag
+																key={i}
+																country={
+																	flag.alpha_2_code
+																}
+																size={30}
+															/>
+														);
+													}
 												}
-											}
-										})}
-										<p>
-											{race.Results[0].Driver.familyName}
-										</p>
+											})}
+											<p>
+												{race.Results[0].Driver.familyName}
+											</p>
+										</div>
 									</td>
 								</tr>
 							);
