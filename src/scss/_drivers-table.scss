@@ -34,6 +34,24 @@
 
                 a {
                     @include anchor;
+                    border: none;
+                    outline: none;
+                }
+
+                /*td klasa*/
+                .fullName {
+                    display: flex;
+                    align-items: center;
+                    box-sizing: border-box;
+                    border-bottom: none;
+                    border: none;
+                    outline: none;
+
+                    img {
+                        margin-right: 10px;
+                        border: none;
+                        outline: none;
+                    }
                 }
             }
         }
