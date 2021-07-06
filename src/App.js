@@ -1,7 +1,7 @@
 import React from "react";
 // import "./css/style.css";
 import "./scss/style.scss";
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink} from "react-router-dom";
 import * as $ from "jquery";
 var ReactCSSTransitionGroup = require("react-addons-css-transition-group");
 import { PropTypes } from "prop-types";
@@ -28,23 +28,23 @@ export default class App extends React.Component {
                             <ul className="links">
                                 
                                 <li className="link">
-                                    <Link to="/drivers">
+                                    <NavLink to="/drivers" activeClassName="selected">
                                         <img src="img/helmet.png"/>
                                         <p className="linkPara">Drivers</p>
-                                        </Link>
+                                    </NavLink>
                                 </li>
                                 
                                 <li className="link">
-                                    <Link to="/teams">
+                                    <NavLink to="/teams" activeClassName="selected">
                                         <img src="img/timovi1.png"/>
                                         <p>Teams</p>
-                                        </Link>
+                                    </NavLink>
                                 </li>
                                 <li className="link">
-                                    <Link to="/races">
+                                    <NavLink to="/races" activeClassName="selected">
                                         <img src="img/checkered-flag.png"/>
                                         <p>Races</p>
-                                        </Link>
+                                    </NavLink>
                                 </li>
                             </ul>
                         </nav>
@@ -54,7 +54,7 @@ export default class App extends React.Component {
                         <Route path="/drivers" component={DriversTable}/>
                         <Route path="/teams" component={Teams}/>
                         <Route path="/races" component={Races}/>
-                        <Route path="/driverDetails/:id" exact component={DriverDetails}/>
+                        <Route path="/driverDetails/:id"  exact component={DriverDetails}/>
                         <Route path="/teamsDetails/:id" exact component={TeamsDetails}/>
                         <Route path="/racesDetails/:id" exact component={RacesDetails}/>
                     </div>
