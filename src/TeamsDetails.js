@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import * as $ from "jquery";
 import Flag from "react-flagkit";
 import Races from "./Races";
+import { FlagSpinner } from "react-spinners-kit";
 
 export default class TeamsDetails extends React.Component {
 	constructor() {
@@ -38,6 +39,7 @@ export default class TeamsDetails extends React.Component {
 				"darkgrey",
 				"darkgrey",
 			],
+			isLoading: true
 		};
 	}
 
@@ -63,12 +65,29 @@ export default class TeamsDetails extends React.Component {
 						.ConstructorStandings,
 					flags: JSON.parse(data2[0]),
 					teamResults: data3[0].MRData.RaceTable.Races,
+					isLoading: false
 				});
 			}.bind(this)
 		);
 	}
 
 	render() {
+		const { loading } = this.state;
+		if (this.state.isLoading) {
+			return (
+				<div className="races">
+					<h2>Race Calendar</h2>
+					<div className="spinner">
+						<FlagSpinner
+							size={200}
+							color="#000"
+							loading={loading}
+						/>
+					</div>
+					;
+				</div>
+			);
+		}
 		console.log(this.state.teams);
 		return (
 			<div className="teamDetails">

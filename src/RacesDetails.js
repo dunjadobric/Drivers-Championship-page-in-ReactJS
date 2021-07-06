@@ -38,6 +38,7 @@ export default class RacesDetails extends React.Component {
 				"darkgrey",
 				"darkgrey",
 			],
+      isLoading: true
 		};
 	}
 	componentDidMount() {
@@ -62,12 +63,29 @@ export default class RacesDetails extends React.Component {
 					raceResults: data2[0].MRData.RaceTable.Races[0].Results,
 					flags: JSON.parse(data3[0]),
 					raceCard: data1[0].MRData.RaceTable.Races,
+          isLoading: false
 				});
 			}.bind(this)
 		);
 	}
 
 	render() {
+    const { loading } = this.state;
+		if (this.state.isLoading) {
+			return (
+				<div className="races">
+					<h2>Race Calendar</h2>
+					<div className="spinner">
+						<FlagSpinner
+							size={200}
+							color="#000"
+							loading={loading}
+						/>
+					</div>
+					;
+				</div>
+			);
+		}
 		return (
 			<div className="racesDetails">
 				<div className="raceCard">
