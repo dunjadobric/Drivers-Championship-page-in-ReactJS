@@ -8,8 +8,18 @@
 }
 
 /*drivers details*/
-/*teams details*/
 .constructorRaces a {
+    color: inherit;
+ 	display: flex;
+  	align-items: center;
+
+    img {
+        margin-right: 10px;
+    }
+}
+
+/*teams details*/
+.constructorTeams a {
     color: inherit;
  	display: flex;
   	align-items: center;

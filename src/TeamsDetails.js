@@ -71,13 +71,13 @@ export default class TeamsDetails extends React.Component {
 	render() {
 		console.log(this.state.teams);
 		return (
-			<div className="driverDetails">
-				<div className="driverCard">
+			<div className="teamDetails">
+				<div className="teamCard">
 					{this.state.teams.map((team, i) => {
 						return (
 							<div>
-								<div className="driverHeading">
-									<div className="driverPhoto">
+								<div className="teamHeading">
+									<div className="teamPhoto">
 										<img
 											src={
 												"../img/teams_crests/" +
@@ -86,7 +86,7 @@ export default class TeamsDetails extends React.Component {
 											}
 										/>
 									</div>
-									<div className="driverNameContent">
+									<div className="teamNameContent">
 										<div>
 											{this.state.flags.map((flag, i) => {
 												if (
@@ -136,13 +136,13 @@ export default class TeamsDetails extends React.Component {
 												}
 											})}
 										</div>
-										<div className="driverName">
+										<div className="teamName">
 											<div>{team.Constructor.name}</div>
 										</div>
 									</div>
 								</div>
 
-								<table className="driverCardTable">
+								<table className="teamCardTable">
 									<tr>
 										<th>Country:</th>
 										<td>{team.Constructor.nationality}</td>
@@ -174,7 +174,7 @@ export default class TeamsDetails extends React.Component {
 						);
 					})}
 				</div>
-				<div className="driverDetailsTable">
+				<div className="teamDetailsTable">
 					<table>
 						<thead>
 							<tr>
@@ -208,11 +208,11 @@ export default class TeamsDetails extends React.Component {
 							{this.state.teamResults.map((race, i) => {
 								return (
 									<tr key={i}>
-										<td className="position">
+										<td className="colorBlack">
 											{race.round}
 										</td>
 										<td>
-											<div className="constructorRaces">
+											<div className="constructorTeams">
 												<Link to="#">
 													{this.state.flags.map(
 														(flag, i) => {
@@ -304,7 +304,7 @@ export default class TeamsDetails extends React.Component {
 											</div>
 										</td>
 										<td
-											className="driversGrid"
+											className="colorBlack"
 											style={{
 												backgroundColor:
 													this.state.colors[
@@ -318,7 +318,7 @@ export default class TeamsDetails extends React.Component {
 											{race.Results[0].position}
 										</td>
 										<td
-											className="driversGrid"
+											className="colorBlack"
 											style={{
 												backgroundColor:
 													this.state.colors[
@@ -332,7 +332,7 @@ export default class TeamsDetails extends React.Component {
 											{race.Results[1].position}
 										</td>
 
-										<td className="driversRace">
+										<td className="colorBlack">
 											{parseInt(race.Results[0].points) +
 												parseInt(
 													race.Results[1].points
