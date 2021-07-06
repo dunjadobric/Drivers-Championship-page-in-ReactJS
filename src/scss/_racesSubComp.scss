@@ -35,7 +35,7 @@
 
 	.raceDetailsTable {
 		background-color: #9ca0a6;
-		width: 80% !important;
+		width: 80%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -73,6 +73,48 @@
 					.blackColor {
 						color: $color-black;
 					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1650px) {
+	.raceDetailsTable {
+		flex-direction: column;
+	}
+}
+
+@media only screen and (max-width: 1520px) {
+	.racesDetails {
+		.raceCard {
+			.raceCardHeading {
+				font-size: 1.1rem;
+			}
+			.raceCardTable {
+				font-size: 16px;
+				td {
+					padding-right: 5px;
+				}
+			}
+
+		}
+	} 	
+}
+@media only screen and (max-width: 1250px) {
+	.racesDetails {
+		.raceDetailsTable {
+			width: 76%;
+
+		}
+		.raceCard {
+			width: 24%;
+			.raceCardTable {
+				i {
+					font-size: 15px;
+				}
+				td {
+					font-size: 14px;
 				}
 			}
 		}

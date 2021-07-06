@@ -108,3 +108,30 @@
 		}
 	}
 }
+@media only screen and (max-width: 1350px) {
+	.driverDetails {
+		.driverCard {
+			width: 24%;
+			.driverCardTable {
+				font-size: 14px;
+			}
+		}
+		.driverDetailsTable {
+			width: 76%;
+		}
+	}
+}
+@media only screen and (max-width: 1250px) {
+	.driverDetails {
+		.driverCard {
+			width: 24%;
+			.driverCardTable {
+				font-size: 12px;
+			}
+		}
+		.driverDetailsTable {
+			width: 76%;	
+			
+		}	
+	}
+}

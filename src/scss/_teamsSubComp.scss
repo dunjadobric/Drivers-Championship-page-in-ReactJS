@@ -104,6 +104,17 @@
     }
 }
 
+@media only screen and (max-width: 1250px){
+    .teamDetails {
+        .teamCard {
+            width: 24%;
+        }
+        .teamDetailsTable {
+            width: 76%;
+        }
+    }
+}
+
 
 
 
