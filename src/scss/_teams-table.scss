@@ -1,42 +1,40 @@
 .teams {
-    
-    @include tableParentDiv;
+	@include tableParentDiv;
+	height: 100vh;
 
-    h2 {
-        @include tableParentDivHeadline;
-    }
+	h2 {
+		@include tableParentDivHeadline;
+	}
 
-    table {
-        @include table;
+	table {
+		@include table;
 
-        thead {
-            @include tableThead;
+		thead {
+			@include tableThead;
 
-            th {
-                @include tableTh;
-            }
-        }
+			th {
+				@include tableTh;
+			}
+		}
 
-        tbody {
+		tbody {
+			tr {
+				td {
+					@include tableTd;
+				}
 
-            tr {
+				.position {
+					@include positionCol;
+				}
 
-                td {
-                    @include tableTd;
-                }
+				.points {
+					color: $color-black;
+				}
 
-                .position {
-                    @include positionCol;
-                }
-
-                .points {
-                    color: $color-black;
-                }
-
-                a {
-                    @include anchor;
-                }
-            }
-        }
-    }
+				a {
+					@include anchor;
+				}
+			}
+		}
+	}
 }
