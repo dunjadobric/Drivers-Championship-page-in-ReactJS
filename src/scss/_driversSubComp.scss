@@ -1,117 +1,110 @@
 .driverDetails {
+	.driverCard {
+		background-color: $color-darkgray;
+		position: fixed;
+		height: $total-height;
+		width: 20%;
+		padding: 30px;
 
-    .driverCard {
-        background-color: $color-darkgray;
-        position: fixed;
-        height: $total-height;
-        width: 20%;
-        padding: 30px;
-    
-        div {
-    
-            .driverHeading {
-                margin-bottom: 30px;
-                width: auto;
-    
-                .driverPhoto {
-                    width: 200px;
-                    height: 200px;
-                    margin-bottom: 15px;
-    
-                    img {
-                        object-fit: cover;
-                        max-width: 100%;
-                        height: auto;
-                        border-radius: 15px;
-                    }
-                }
-    
-                .driverNameContent {
-                    display: block;
-                    margin-left: 10px;
-    
-                    .driverName {
-                        color: $color-white;
-                        font-size: 2rem;
-                        font-weight: bold;
-                    }
-                }
-            }
-    
-            .driverCardTable {
-                color: $color-white;
-                font-weight: 700;
-                text-align: left;
-    
-                i {
-                    text-decoration: none;
-                    color: $color-white;
-                    font-size: 20px;
-                }
-    
-                th, td {
-                    padding: 5px;
-                    padding-right: 15px;
-                }
-            }
-        }   
-    }
+		div {
+			.driverHeading {
+				margin-bottom: 30px;
+				width: auto;
 
-    .driverDetailsTable {
-        @include tableParentDiv;
-        float: right;
-        width: 80%;
-        display: flex;
-        justify-content: center;
+				.driverPhoto {
+					width: 200px;
+					height: 200px;
+					margin-bottom: 15px;
 
-        table {
-            @include table;
-            width: 90%;
-            margin-top: 20px;
+					img {
+						object-fit: cover;
+						max-width: 100%;
+						height: auto;
+						border-radius: 15px;
+					}
+				}
 
-            thead {
-                @include tableThead;
+				.driverNameContent {
+					display: block;
+					margin-left: 10px;
 
-                tr:nth-child(2) th {
-                        color: $color-black;
-                        border: none;
-                        background-color: #bab9b4;
-                }
+					.driverName {
+						color: $color-white;
+						font-size: 2rem;
+						font-weight: bold;
+					}
+				}
+			}
 
-                th {
-                    @include tableTh;
-                }
-            }
+			.driverCardTable {
+				color: $color-white;
+				font-weight: 700;
+				text-align: left;
 
-            tbody {
+				i {
+					text-decoration: none;
+					color: $color-white;
+					font-size: 20px;
+				}
 
-                tr {
+				th,
+				td {
+					padding: 5px;
+					padding-right: 15px;
+				}
+			}
+		}
+	}
 
-                    td {
-                        @include tableTd;
+	.driverDetailsTable {
+		@include tableParentDiv;
+		float: right;
+		width: 80%;
+		display: flex;
+		justify-content: center;
 
-                        a {
-                            @include anchor;
-                        }
-                    }
+		table {
+			@include table;
+			width: 90%;
+			margin-top: 20px;
 
-                    .position {
-                        color: $color-black;
-                    }
+			thead {
+				@include tableThead;
 
-                    .driversGrid {
-                        color: $color-black;
-                    }
-                    
-                    .driversRace {
-                        color: $color-black;
-                    }
-                }
-            }
-        }
-    }
+				tr:nth-child(2) th {
+					color: $color-black;
+					border: none;
+					background-color: #bab9b4;
+				}
+
+				th {
+					@include tableTh;
+				}
+			}
+
+			tbody {
+				tr {
+					td {
+						@include tableTd;
+
+						a {
+							@include anchor;
+						}
+					}
+
+					.position {
+						color: $color-black;
+					}
+
+					.driversGrid {
+						color: $color-black;
+					}
+
+					.driversRace {
+						color: $color-black;
+					}
+				}
+			}
+		}
+	}
 }
-
-
-
-

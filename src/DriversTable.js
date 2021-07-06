@@ -108,7 +108,8 @@ export default class DriversTable extends React.Component {
 										<div className="fullName">
 											{this.state.flags.map((flag, i) => {
 												if (
-													driver.Driver.nationality ===
+													driver.Driver
+														.nationality ===
 														"British" &&
 													flag.nationality ===
 														"British, UK"
@@ -120,7 +121,8 @@ export default class DriversTable extends React.Component {
 														/>
 													);
 												} else if (
-													driver.Driver.nationality ===
+													driver.Driver
+														.nationality ===
 														"Dutch" &&
 													flag.nationality ===
 														"Dutch, Netherlandic"
