@@ -38,7 +38,7 @@ export default class RacesDetails extends React.Component {
 				"darkgrey",
 				"darkgrey",
 			],
-      isLoading: true
+			isLoading: true,
 		};
 	}
 	componentDidMount() {
@@ -63,14 +63,14 @@ export default class RacesDetails extends React.Component {
 					raceResults: data2[0].MRData.RaceTable.Races[0].Results,
 					flags: JSON.parse(data3[0]),
 					raceCard: data1[0].MRData.RaceTable.Races,
-          isLoading: false
+					isLoading: false,
 				});
 			}.bind(this)
 		);
 	}
 
 	render() {
-    const { loading } = this.state;
+		const { loading } = this.state;
 		if (this.state.isLoading) {
 			return (
 				<div className="races">
@@ -114,7 +114,11 @@ export default class RacesDetails extends React.Component {
 												"Korea (Republic of)"
 										) {
 											return (
-												<Flag key={i} country="KR" />
+												<Flag
+													key={i}
+													country="KR"
+													size={200}
+												/>
 											);
 										} else if (
 											card.Circuit.Location.country ===
@@ -123,7 +127,11 @@ export default class RacesDetails extends React.Component {
 												"United Arab Emirates"
 										) {
 											return (
-												<Flag key={i} country="AE" />
+												<Flag
+													key={i}
+													country="AE"
+													size={200}
+												/>
 											);
 										} else if (
 											card.Circuit.Location.country ===
@@ -132,7 +140,11 @@ export default class RacesDetails extends React.Component {
 												"United States of America"
 										) {
 											return (
-												<Flag key={i} country="US" />
+												<Flag
+													key={i}
+													country="US"
+													size={200}
+												/>
 											);
 										} else {
 											if (
