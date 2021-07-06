@@ -152,7 +152,7 @@ export default class DriversTable extends React.Component {
 											})}
 
 											<Link
-												to={`/driverDetails/${driver.Driver.driverId}`}
+												to={`/drivers/${driver.Driver.driverId}`}
 											>
 												{driver.Driver.givenName +
 													" " +

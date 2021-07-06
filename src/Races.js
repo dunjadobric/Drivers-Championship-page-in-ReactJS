@@ -82,78 +82,92 @@ export default class Races extends React.Component {
 							return (
 								<tr key={i}>
 									<td className="position">{race.round}</td>
-									<td><div className="constructorRaces">
-										<Link to={`/racesDetails/${race.round}`}>
-											{this.state.flags.map((flag, i) => {
-												if (
-													race.Circuit.Location
-														.country === "UK" &&
-													flag.en_short_name ===
-														"United Kingdom of Great Britain and Northern Ireland"
-												) {
-													return (
-														<Flag
-															key={i}
-															country="GB"
-															size={30}
-														/>
-													);
-												} else if (
-													race.Circuit.Location
-														.country === "Korea" &&
-													flag.en_short_name ===
-														"Korea (Republic of)"
-												) {
-													return (
-														<Flag
-															key={i}
-															country="KR"
-														/>
-													);
-												} else if (
-													race.Circuit.Location
-														.country === "UAE" &&
-													flag.en_short_name ===
-														"United Arab Emirates"
-												) {
-													return (
-														<Flag
-															key={i}
-															country="AE"
-														/>
-													);
-												} else if (
-													race.Circuit.Location
-														.country === "USA" &&
-													flag.en_short_name ===
-														"United States of America"
-												) {
-													return (
-														<Flag
-															key={i}
-															country="US"
-														/>
-													);
-												} else {
-													if (
-														race.Circuit.Location
-															.country ===
-														flag.en_short_name
-													) {
-														return (
-															<Flag
-																key={i}
-																country={
-																	flag.alpha_2_code
-																}
-																size={30}
-															/>
-														);
+									<td>
+										<div className="constructorRaces">
+											<Link to={`/races/${race.round}`}>
+												{this.state.flags.map(
+													(flag, i) => {
+														if (
+															race.Circuit
+																.Location
+																.country ===
+																"UK" &&
+															flag.en_short_name ===
+																"United Kingdom of Great Britain and Northern Ireland"
+														) {
+															return (
+																<Flag
+																	key={i}
+																	country="GB"
+																	size={30}
+																/>
+															);
+														} else if (
+															race.Circuit
+																.Location
+																.country ===
+																"Korea" &&
+															flag.en_short_name ===
+																"Korea (Republic of)"
+														) {
+															return (
+																<Flag
+																	key={i}
+																	country="KR"
+																/>
+															);
+														} else if (
+															race.Circuit
+																.Location
+																.country ===
+																"UAE" &&
+															flag.en_short_name ===
+																"United Arab Emirates"
+														) {
+															return (
+																<Flag
+																	key={i}
+																	country="AE"
+																/>
+															);
+														} else if (
+															race.Circuit
+																.Location
+																.country ===
+																"USA" &&
+															flag.en_short_name ===
+																"United States of America"
+														) {
+															return (
+																<Flag
+																	key={i}
+																	country="US"
+																/>
+															);
+														} else {
+															if (
+																race.Circuit
+																	.Location
+																	.country ===
+																flag.en_short_name
+															) {
+																return (
+																	<Flag
+																		key={i}
+																		country={
+																			flag.alpha_2_code
+																		}
+																		size={
+																			30
+																		}
+																	/>
+																);
+															}
+														}
 													}
-												}
-											})}
-											<p>{race.raceName}</p>
-										</Link>
+												)}
+												<p>{race.raceName}</p>
+											</Link>
 										</div>
 									</td>
 									<td className="circuit">
@@ -196,7 +210,10 @@ export default class Races extends React.Component {
 												}
 											})}
 											<p>
-												{race.Results[0].Driver.familyName}
+												{
+													race.Results[0].Driver
+														.familyName
+												}
 											</p>
 										</div>
 									</td>

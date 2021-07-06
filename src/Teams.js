@@ -84,7 +84,8 @@ export default class Teams extends React.Component {
 										<div className="constructorTeams">
 											{this.state.flags.map((flag, i) => {
 												if (
-													team.Constructor.nationality ===
+													team.Constructor
+														.nationality ===
 														"British" &&
 													flag.nationality ===
 														"British, UK"
@@ -97,7 +98,8 @@ export default class Teams extends React.Component {
 														/>
 													);
 												} else if (
-													team.Constructor.nationality ===
+													team.Constructor
+														.nationality ===
 														"Dutch" &&
 													flag.nationality ===
 														"Dutch, Netherlandic"
@@ -130,7 +132,12 @@ export default class Teams extends React.Component {
 										</div>
 									</td>
 									<td>
-										<Link to={`/teamsDetails/${team.Constructor.constructorId}`}>Details   <i class="fa fa-external-link"></i></Link>
+										<Link
+											to={`teams/${team.Constructor.constructorId}`}
+										>
+											Details{" "}
+											<i class="fa fa-external-link"></i>
+										</Link>
 									</td>
 									<td className="points">{team.points}</td>
 								</tr>

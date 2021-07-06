@@ -56,19 +56,22 @@ export default class App extends React.Component {
 					</div>
 					<div className="content">
 						<Route path="/" exact component={Welcome} />
-						<Route path="/drivers" component={DriversTable} />
-						<Route path="/teams" component={Teams} />
-						<Route path="/races" component={Races} />
+						<Route path="/drivers" exact component={DriversTable} />
+						<Route path="/teams" exact component={Teams} />
+						<Route path="/races" exact component={Races} />
 						<Route
-							path="/driverDetails/:id"
+							path="/drivers/:id"
+							exact
 							component={DriverDetails}
 						/>
 						<Route
-							path="/teamsDetails/:id"
+							path="/teams/:id"
+							exact
 							component={TeamsDetails}
 						/>
 						<Route
-							path="/racesDetails/:id"
+							path="/races/:id"
+							exact
 							component={RacesDetails}
 						/>
 					</div>
