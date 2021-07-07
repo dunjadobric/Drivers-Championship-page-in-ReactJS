@@ -1,5 +1,4 @@
 import React from "react";
-// import "./css/style.css";
 import "./scss/style.scss";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import * as $ from "jquery";
