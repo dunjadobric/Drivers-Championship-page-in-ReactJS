@@ -12,19 +12,20 @@ export default class DriversTable extends React.Component {
 		this.state = {
 			drivers: [],
 			flags: [],
+			year: "",
 			isLoading: true,
 		};
 	}
 
 	componentDidMount() {
-		this.getDriver();
+		this.getDriver(this.props.location.state.year);
 		// this.getResponse();
 		// this.getFlags();
 	}
 
-	getDriver() {
+	getDriver(year) {
 		var urlResponse = $.ajax(
-			`http://ergast.com/api/f1/2013/driverStandings.json`
+			`http://ergast.com/api/f1/${year}/driverStandings.json`
 		);
 		var urlFlags = $.ajax(
 			`https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json`
@@ -93,7 +94,7 @@ export default class DriversTable extends React.Component {
 					<thead>
 						<tr>
 							<th colSpan="5">
-								Drivers Championships Standings - 2013
+								Drivers Championships Standings - {this.props.location.state.year}
 							</th>
 						</tr>
 					</thead>
@@ -152,7 +153,8 @@ export default class DriversTable extends React.Component {
 											})}
 
 											<Link
-												to={`/drivers/${driver.Driver.driverId}`}
+											to={{pathname:`/drivers/${driver.Driver.driverId}`, state:{year:this.props.location.state.year}}}
+												// to={`/drivers/${driver.Driver.driverId}`}
 											>
 												{driver.Driver.givenName +
 													" " +

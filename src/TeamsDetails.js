@@ -12,6 +12,7 @@ export default class TeamsDetails extends React.Component {
 		this.state = {
 			teams: [],
 			flags: [],
+			year: "",
 			teamResults: [],
 			colors: [
 				"yellow",
@@ -44,18 +45,18 @@ export default class TeamsDetails extends React.Component {
 	}
 
 	componentDidMount() {
-		this.getTeamDetails(this.props.match.params.id);
+		this.getTeamDetails(this.props.match.params.id, this.props.location.state.year);
 	}
 
-	getTeamDetails(id) {
+	getTeamDetails(id,year) {
 		var urlTeams = $.ajax(
-			`http://ergast.com/api/f1/2013/constructors/${id}/constructorStandings.json`
+			`http://ergast.com/api/f1/${year}/constructors/${id}/constructorStandings.json`
 		);
 		var urlFlags = $.ajax(
 			`https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json`
 		);
 		var urlTeamResults = $.ajax(
-			`http://ergast.com/api/f1/2013/constructors/${id}/results.json `
+			`http://ergast.com/api/f1/${year}/constructors/${id}/results.json `
 		);
 
 		$.when(urlTeams, urlFlags, urlTeamResults).done(
@@ -102,7 +103,7 @@ export default class TeamsDetails extends React.Component {
 												"../img/teams_crests/" +
 												team.Constructor.name +
 												".jpg"
-											}
+											} alt=""
 										/>
 									</div>
 									<div className="teamNameContent">
@@ -197,7 +198,7 @@ export default class TeamsDetails extends React.Component {
 					<table>
 						<thead>
 							<tr>
-								<th colSpan="5">Formula 1 2013 Results</th>
+								<th colSpan="5">Formula 1 {this.props.location.state.year} Results</th>
 							</tr>
 							{this.state.teamResults.map((race, i) => {
 								if (i < 1) {
@@ -232,7 +233,9 @@ export default class TeamsDetails extends React.Component {
 										</td>
 										<td>
 											<div className="constructorTeams">
-												<Link to="#">
+												<Link
+												to={{pathname:`/races/${race.round}`, state:{year:this.props.location.state.year}}}>
+												{/* to={`/races/${race.round}`}> */}
 													{this.state.flags.map(
 														(flag, i) => {
 															if (

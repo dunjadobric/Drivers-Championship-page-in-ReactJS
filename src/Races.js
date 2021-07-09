@@ -11,17 +11,18 @@ export default class Races extends React.Component {
 		this.state = {
 			races: [],
 			flags: [],
+			year: "",
 			isLoading: true,
 		};
 	}
 
 	componentDidMount() {
-		this.getResponse();
+		this.getResponse(this.props.location.state.year);
 		this.getFlags();
 	}
 
-	getResponse() {
-		var url = "http://ergast.com/api/f1/2013/results/1.json";
+	getResponse(year) {
+		var url = `http://ergast.com/api/f1/${year}/results/1.json`;
 		$.get(url, (data) => {
 			console.log(data);
 			this.setState({
@@ -67,7 +68,7 @@ export default class Races extends React.Component {
 				<table>
 					<thead>
 						<tr>
-							<th colSpan="5">Race Calendar - 2013</th>
+							<th colSpan="5">Race Calendar - {this.props.location.state.year}</th>
 						</tr>
 						<tr className="racesRows">
 							<th className="racesRow">Round</th>
@@ -84,7 +85,9 @@ export default class Races extends React.Component {
 									<td className="position">{race.round}</td>
 									<td>
 										<div className="constructorRaces">
-											<Link to={`/races/${race.round}`}>
+											<Link 
+											to={{pathname:`/races/${race.round}`, state:{year:this.props.location.state.year}}}>
+											{/* // to={`/races/${race.round}`} */}
 												{this.state.flags.map(
 													(flag, i) => {
 														if (

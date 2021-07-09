@@ -11,6 +11,7 @@ export default class RacesDetails extends React.Component {
 			qngResults: [],
 			raceResults: [],
 			flags: [],
+			year: "",
 			raceCard: [],
 			colors: [
 				"yellow",
@@ -42,14 +43,14 @@ export default class RacesDetails extends React.Component {
 		};
 	}
 	componentDidMount() {
-		this.getResults(this.props.match.params.id);
+		this.getResults(this.props.match.params.id, this.props.location.state.year);
 	}
-	getResults(id) {
+	getResults(id, year) {
 		var urlQngResults = $.ajax(
-			`http://ergast.com/api/f1/2013/${id}/qualifying.json`
+			`http://ergast.com/api/f1/${year}/${id}/qualifying.json`
 		);
 		var urlRaceResults = $.ajax(
-			`http://ergast.com/api/f1/2013/${id}/results.json`
+			`http://ergast.com/api/f1/${year}/${id}/results.json`
 		);
 		var urlFlags = $.ajax(
 			`https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json`
@@ -221,8 +222,8 @@ export default class RacesDetails extends React.Component {
 								niz.push(res.Q2);
 								niz.push(res.Q3);
 								var niz1 = niz.sort();
-								console.log("niz1", niz1);
-								console.log("niz", niz);
+								// console.log("niz1", niz1);
+								// console.log("niz", niz);
 								return (
 									<tr key={i}>
 										<td className="blackColor">
@@ -364,7 +365,7 @@ export default class RacesDetails extends React.Component {
 										<td className="blackColor">
 											{rec.Time !== undefined
 												? rec.Time.time
-												: "/"}
+												: "not finished"}
 										</td>
 										<td
 											className="blackColor"

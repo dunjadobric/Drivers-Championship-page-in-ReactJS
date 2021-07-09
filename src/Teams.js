@@ -11,17 +11,18 @@ export default class Teams extends React.Component {
 		this.state = {
 			teams: [],
 			flags: [],
+			year: "",
 			isLoading: true,
 		};
 	}
 
 	componentDidMount() {
-		this.getResponse();
+		this.getResponse(this.props.location.state.year);
 		this.getFlags();
 	}
 
-	getResponse() {
-		var url = "http://ergast.com/api/f1/2013/constructorStandings.json";
+	getResponse(year) {
+		var url = `http://ergast.com/api/f1/${year}/constructorStandings.json`;
 		$.get(url, (data) => {
 			console.log(data);
 			this.setState({
@@ -69,7 +70,7 @@ export default class Teams extends React.Component {
 					<thead>
 						<tr>
 							<th colSpan="4">
-								Constructors Championships Standings - 2013
+								Constructors Championships Standings - {this.props.location.state.year}
 							</th>
 						</tr>
 					</thead>
@@ -133,7 +134,8 @@ export default class Teams extends React.Component {
 									</td>
 									<td>
 										<Link
-											to={`teams/${team.Constructor.constructorId}`}
+											to={{pathname:`teams/${team.Constructor.constructorId}`, state:{year:this.props.location.state.year}}}
+											// to={`teams/${team.Constructor.constructorId}`}
 										>
 											Details{" "}
 											<i class="fa fa-external-link"></i>

@@ -7,6 +7,16 @@
 	background-color: $color-darkgray;
 	border-right: 2px solid rgb(24, 24, 24);
 
+	form {
+		display: flex;
+		padding: 10px;
+
+		input {
+			width: 100%;
+			padding: 10px;
+		}
+	}
+
 	img {
 		width: 100%;
 		height: auto;
@@ -59,6 +69,7 @@
 }
 
 @media only screen and (max-width: 1200px) {
+
 	.sidebar .links .link a p {
 		font-size: 16px;
 	}
@@ -66,3 +77,11 @@
 		width: 40px;
 	}
 }
+
+
+	// .sidebar .links .link a p {
+	// 	font-size: 16px;
+	// }
+	// .sidebar .links .link img {
+	// 	width: 40px;
+	// }
